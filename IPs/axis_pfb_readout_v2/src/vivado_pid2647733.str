@@ -1,0 +1,1696 @@
+/*
+
+Xilinx Vivado v2022.1 (64-bit) [Major: 2022, Minor: 1]
+SW Build: 3526262 on Mon Apr 18 15:47:01 MDT 2022
+IP Build: 3524634 on Mon Apr 18 20:55:01 MDT 2022
+
+Process ID (PID): 2647733
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Tue Feb 06 09:17:35 CST 2024
+Time zone: 	Central Standard Time (America/Chicago)
+
+OS: AlmaLinux release 9.3 (Shamrock Pampas Cat)
+OS Version: 5.14.0-362.8.1.el9_3.x86_64
+OS Architecture: amd64
+Available processors (cores): 28
+
+Display: localhost:13.0
+Screen size: 1920x1160
+Screen resolution (DPI): 100
+Available screens: 3
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/home/tools/Xilinx/Vivado/2022.1/tps/lnx64/jre11.0.11_9
+Java executable: 	/home/tools/Xilinx/Vivado/2022.1/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	lstefana
+User home directory: /home/lstefana
+User working directory: /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /home/tools/Xilinx/Vivado
+HDI_APPROOT: /home/tools/Xilinx/Vivado/2022.1
+RDI_DATADIR: /home/tools/Xilinx/Vivado/2022.1/data
+RDI_BINDIR: /home/tools/Xilinx/Vivado/2022.1/bin
+
+Vivado preferences file: /home/lstefana/.Xilinx/Vivado/2022.1/vivado.xml
+Vivado preferences directory: /home/lstefana/.Xilinx/Vivado/2022.1/
+Vivado layouts directory: /home/lstefana/.Xilinx/Vivado/2022.1/data/layouts
+PlanAhead jar file: 	/home/tools/Xilinx/Vivado/2022.1/lib/classes/planAhead.jar
+Vivado log file: 	/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/vivado.log
+Vivado journal file: 	/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-2647733-teddy01.fnal.gov
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /home/tools/Xilinx/Vivado/2022.1/ids_lite/ISE
+XILINXD_LICENSE_FILE: 2100@xilinx-lic
+XILINX_DSP: /home/tools/Xilinx/Vivado/2022.1/ids_lite/ISE
+XILINX_HLS: /home/tools/Xilinx/Vitis_HLS/2022.1
+XILINX_PLANAHEAD: /home/tools/Xilinx/Vivado/2022.1
+XILINX_SDK: /home/tools/Xilinx/Vitis/2022.1
+XILINX_VITIS: /home/tools/Xilinx/Vitis/2022.1
+XILINX_VIVADO: /home/tools/Xilinx/Vivado/2022.1
+XILINX_VIVADO_HLS: /home/tools/Xilinx/Vivado/2022.1
+
+
+GUI allocated memory:	308 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,940 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,941 MB. GUI used memory: 80 MB. Current time: 2/6/24, 9:17:36 AM CST
+selectButton(PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, "Create Project"); // y
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+selectButton("NEXT", "Next >"); // JButton
+selectButton("NEXT", "Next >"); // JButton
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+String[] filenames31467 = {"/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_slv.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axis_pfb_readout_v2.v", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ddsprod.sv", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ddsprod_v.sv", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/firs.sv", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb.sv", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb_dds_mux.sv", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb_mux.sv", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pimod.vhd"};
+setFileChooser(filenames31467);
+selectButton("NEXT", "Next >"); // JButton
+// [GUI Memory]: 121 MB (+124169kb) [00:00:26]
+// [Engine Memory]: 1,953 MB (+1896712kb) [00:00:26]
+// [GUI Memory]: 127 MB (+459kb) [00:00:26]
+selectButton("NEXT", "Next >"); // JButton
+selectTab(PAResourceOtoP.PartChooser_TABBED_PANE, (HResource) null, "Boards", 1); // i
+// HMemoryUtils.trashcanNow. Engine heap size: 1,932 MB. GUI used memory: 69 MB. Current time: 2/6/24, 9:17:56 AM CST
+selectTreeTable(PAResourceAtoD.BoardChooser_BOARD_TABLE, "Zynq UltraScale+ ZCU216 Evaluation Platform ; Zynq UltraScale+ ZCU216 Evaluation Platform ; Zynq UltraScale+ ZCU216 Evaluation Platform ; xilinx.com ; 2.0 ; xczu49dr-ffvf1760-2-e ; 1760 ; Rev A ; 408 ; 425280 ; 850560 ; 1080 ; 80 ; 4272 ; 16 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 16 ; 0 ; 0 ; 0 ; 0 ; 0 ; 2 ; 8 ;  ; 2 ;  ;  ; 1 ;  ;  ; 0 ; 100 ; 100 ; E ; 0.825 ; 0.850 ; 0.876", 4, "Zynq UltraScale+ ZCU216 Evaluation Platform", 0, false); // ah
+selectButton("NEXT", "Next >"); // JButton
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: create_project project_1 /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1 -part xczu49dr-ffvf1760-2-e 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  1287 ms.
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/tools/Xilinx/Vivado/2022.1/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: BOARD_MODIFIED
+// Tcl Message: set_property board_part xilinx.com:zcu216:part0:2.0 [current_project] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/firs.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_slv.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb_mux.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ddsprod_v.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pimod.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb_dds_mux.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ddsprod.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axis_pfb_readout_v2.v} 
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 28 seconds
+dismissDialog("Create Project"); // bA
+dismissDialog("New Project"); // f
+// [GUI Memory]: 192 MB (+61222kb) [00:00:39]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [Engine Memory]: 2,070 MB (+20018kb) [00:00:43]
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 11 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v)]", 1); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv)]", 3); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv)]", 4); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+// [GUI Memory]: 202 MB (+335kb) [00:01:09]
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+dismissFileChooser();
+selectButton("CANCEL", "Cancel"); // JButton
+// 'g' command handler elapsed time: 12 seconds
+dismissDialog("Add Sources"); // c
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aL
+// Tcl Command: 'rdi::info_commands {sour*}'
+// Tcl Command: 'rdi::info_commands {sour*}'
+// Tcl Command: 'rdi::info_commands bd::match_path'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source fir/", true); // l
+// Tcl Command: 'rdi::info_commands bd::match_path'
+// Tcl Command: 'rdi::info_commands bd::match_path'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source fir/ad", true); // l
+applyEnter(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source fir/add.tcl"); // l
+// Tcl Command: 'source fir/add.tcl'
+// Tcl Command: 'source fir/add.tcl'
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: source fir/add.tcl 
+// Tcl Message: # add_files ./fir/fir_0/fir_0.xci 
+// Tcl Message: # add_files ./fir/fir_1/fir_1.xci 
+// Tcl Message: # add_files ./fir/fir_2/fir_2.xci 
+// Tcl Message: # add_files ./fir/fir_3/fir_3.xci 
+// Tcl Message: # add_files ./fir/fir_4/fir_4.xci 
+// Tcl Message: # add_files ./fir/fir_5/fir_5.xci 
+// Tcl Message: # add_files ./fir/fir_6/fir_6.xci 
+// Tcl Message: # add_files ./fir/fir_7/fir_7.xci 
+// Tcl Message: /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci 
+dismissDialog("Tcl Command Line"); // bA
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,114 MB. GUI used memory: 154 MB. Current time: 2/6/24, 9:19:21 AM CST
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv), fir0_i : fir_0 (fir_0.xci)]", 6, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv), fir7_i : fir_7 (fir_7.xci)]", 13, false, true, false, false, false, false); // D - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv), fir2_i : fir_4 (fir_4.xci)]", 8, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UPGRADE_IP, "Upgrade IP..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_UPGRADE_IP
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Upgrade IP"); // aj
+// TclEventType: LOAD_FEATURE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: upgrade_ip [get_ips  {fir_0 fir_2 fir_4 fir_6 fir_1 fir_3 fir_5 fir_7}] -log ip_upgrade.log 
+// Tcl Message: Upgrading 'fir_0' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_0 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_0'... 
+// Tcl Message: Upgrading 'fir_1' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_1 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_1'... 
+// Tcl Message: Upgrading 'fir_2' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_2 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_2'... 
+// Tcl Message: Upgrading 'fir_3' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_3 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_3'... 
+// Tcl Message: Upgrading 'fir_4' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_4 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_4'... 
+// Tcl Message: Upgrading 'fir_5' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_5 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_5'... 
+// Tcl Message: Upgrading 'fir_6' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_6 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_6'... 
+// Tcl Message: Upgrading 'fir_7' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: IP_UPGRADE_COMPLETE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded fir_7 (FIR Compiler 7.2) from revision 15 to revision 18 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'fir_7'... INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/ip_upgrade.log'. 
+// Tcl Message: upgrade_ip: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 8213.266 ; gain = 0.000 ; free physical = 17427 ; free virtual = 86733 
+// Tcl Message: export_ip_user_files -of_objects [get_ips {fir_0 fir_2 fir_4 fir_6 fir_1 fir_3 fir_5 fir_7}] -no_script -sync -force -quiet 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: convert_ips [get_files  {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci}] 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,135 MB. GUI used memory: 157 MB. Current time: 2/6/24, 9:19:41 AM CST
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// [GUI Memory]: 216 MB (+4110kb) [00:02:19]
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// Tcl Message: set_property coreContainer.enable 1 [current_project] 
+// Elapsed time: 20 seconds
+dismissDialog("Enable Core Container"); // ag
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceQtoS.SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL, "Skip"); // a
+dismissDialog("Generate Output Products"); // aI
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv), fir0_i : fir_0 (fir_0.xci)]", 6, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv), fir7_i : fir_7 (fir_7.xci)]", 13, false, true, false, false, false, false); // D - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv), fir3_i : fir_6 (fir_6.xci)]", 9, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceEtoH.FileSetPanel_DISABLE_CORE_CONTAINER, "Disable Core Container"); // ar
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: convert_ips [get_files  {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci}] 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// Elapsed time: 10 seconds
+dismissDialog("Disable Core Container"); // bA
+// TclEventType: FILE_SET_CHANGE
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), firs_i : firs (firs.sv)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), ssrfft_8x8_i : xil_defaultlib.ssrfft_8x8]", 6, false, false, false, false, true, false); // D - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssrfft_8x8.vhd");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+String[] filenames16706 = {"/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/conv_pkg.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/single_reg_w_init.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/srl17e.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/srl33e.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/ssr_8x8.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/ssr_8x8_entity_declarations.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/synth_reg.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/synth_reg_reg.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/synth_reg_w_init.vhd", "/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/xlclockdriver_rd.vhd"};
+setFileChooser(filenames16706);
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 13 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,150 MB. GUI used memory: 157 MB. Current time: 2/6/24, 9:20:31 AM CST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 26 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), ssrfft_8x8_i : ssrfft_8x8(rtl) (ssrfft_8x8.vhd)]", 6); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), ssrfft_8x8_i : ssrfft_8x8(rtl) (ssrfft_8x8.vhd), ssr_8x8_i : ssr_8x8(structural) (ssr_8x8.vhd)]", 7); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), ssrfft_8x8_i : ssrfft_8x8(rtl) (ssrfft_8x8.vhd), ssr_8x8_i : ssr_8x8(structural) (ssr_8x8.vhd), ssr_8x8_default_clock_driver : ssr_8x8_default_clock_driver(structural) (ssr_8x8.vhd)]", 8); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), ssrfft_8x8_i : ssrfft_8x8(rtl) (ssrfft_8x8.vhd), ssr_8x8_i : ssr_8x8(structural) (ssr_8x8.vhd), ssr_8x8_default_clock_driver : ssr_8x8_default_clock_driver(structural) (ssr_8x8.vhd)]", 8); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv), ssrfft_8x8_i : ssrfft_8x8(rtl) (ssrfft_8x8.vhd)]", 6); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), pfb_i : pfb (pfb.sv)]", 4); // D
+// Elapsed time: 78 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv)]", 5); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv), genblk1[0].ddsprod_i : ddsprod (ddsprod.sv)]", 6); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv), genblk1[0].ddsprod_i : ddsprod (ddsprod.sv)]", 6); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v)]", 1, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 161 MB. Current time: 2/6/24, 9:22:26 AM CST
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+dismissFileChooser();
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 17 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci 
+// [Engine Memory]: 2,183 MB (+9504kb) [00:05:15]
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+dismissDialog("Add Sources"); // bA
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv), genblk1[0].ddsprod_i : ddsprod (ddsprod.sv)]", 6); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv), genblk1[0].ddsprod_i : ddsprod (ddsprod.sv), dds_i : dds_0 (dds_0.xci)]", 7, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UPGRADE_IP, "Upgrade IP..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_UPGRADE_IP
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: upgrade_ip -vlnv xilinx.com:ip:dds_compiler:6.0 [get_ips  dds_0] -log ip_upgrade.log 
+// Tcl Message: Upgrading 'dds_0' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: IP_UPGRADE_COMPLETE
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded dds_0 (DDS Compiler 6.0) from revision 20 to revision 22 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dds_0'... INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/ip_upgrade.log'. 
+// Tcl Message: export_ip_user_files -of_objects [get_ips dds_0] -no_script -sync -force -quiet 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] 
+// Tcl Message: INFO: [filemgmt 56-106] Converting IP 'dds_0' into core container format. INFO: [filemgmt 56-101] Creating core container '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0.xcix' for IP 'dds_0' 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+selectButton(PAResourceTtoZ.UpgradeIP_OK, "OK"); // a
+dismissDialog("Enable Core Container"); // ag
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceQtoS.SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL, "Skip"); // a
+dismissDialog("Generate Output Products"); // aI
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv), genblk1[0].ddsprod_i : ddsprod (ddsprod.sv), dds_i : dds_0 (dds_0.xci)]", 7, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceEtoH.FileSetPanel_DISABLE_CORE_CONTAINER, "Disable Core Container"); // ar
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] 
+// Tcl Message: INFO: [filemgmt 56-105] Converting IP 'dds_0' into non-core container format. 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+dismissDialog("Disable Core Container"); // bA
+// TclEventType: FILE_SET_CHANGE
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv), genblk1[0].ddsprod_i : ddsprod (ddsprod.sv)]", 6); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv), ddsprod_v_i : ddsprod_v (ddsprod_v.sv)]", 5); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v), pfb_dds_mux_i : pfb_dds_mux (pfb_dds_mux.sv)]", 3); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axis_pfb_readout_v2 (axis_pfb_readout_v2.v)]", 1); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 5); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // ao
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RESET, "Reset Simulation"); // ao
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/tb/tb.sv");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 9 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets sim_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset sim_1 -norecurse /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/tb/tb.sv 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,193 MB. GUI used memory: 160 MB. Current time: 2/6/24, 9:23:21 AM CST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed time: 11 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb (tb.sv)]", 7); // D
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN, "Add or create design sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 8 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+dismissDialog("Add Sources"); // bA
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axi_mst_0 (axi_mst_0.xci)]", 2, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UPGRADE_IP, "Upgrade IP..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_UPGRADE_IP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: IP_UPGRADE_COMPLETE
+// Tcl Message: upgrade_ip -vlnv xilinx.com:ip:axi_vip:1.1 [get_ips  axi_mst_0] -log ip_upgrade.log 
+// Tcl Message: Upgrading 'axi_mst_0' 
+// Tcl Message: INFO: [IP_Flow 19-3422] Upgraded axi_mst_0 (AXI Verification IP 1.1) from revision 8 to revision 12 INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axi_mst_0'... INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/ip_upgrade.log'. 
+// Tcl Message: export_ip_user_files -of_objects [get_ips axi_mst_0] -no_script -sync -force -quiet 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] 
+// Tcl Message: INFO: [filemgmt 56-106] Converting IP 'axi_mst_0' into core container format. INFO: [filemgmt 56-101] Creating core container '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0.xcix' for IP 'axi_mst_0' 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceTtoZ.UpgradeIP_OK, "OK"); // a
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceTtoZ.UpgradeIP_OK, "OK"); // a
+dismissDialog("Enable Core Container"); // ag
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceQtoS.SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL, "Skip"); // a
+dismissDialog("Generate Output Products"); // aI
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, axi_mst_0 (axi_mst_0.xci)]", 2, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceEtoH.FileSetPanel_DISABLE_CORE_CONTAINER, "Disable Core Container"); // ar
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] 
+// Tcl Message: INFO: [filemgmt 56-105] Converting IP 'axi_mst_0' into non-core container format. 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+dismissDialog("Disable Core Container"); // bA
+// TclEventType: FILE_SET_CHANGE
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb (tb.sv), DUT : axis_pfb_readout_v2 (axis_pfb_readout_v2.v)]", 10); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb (tb.sv), DUT : axis_pfb_readout_v2 (axis_pfb_readout_v2.v)]", 10); // D
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // n
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ar
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dds_0'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dds_0'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'dds_0'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'dds_0'... INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'dds_0'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset dds_0 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top dds_0 [get_fileset dds_0] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset dds_0] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_7'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_7'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_7'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_7'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_7'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_7: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_7'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// [GUI Memory]: 227 MB (+119kb) [00:06:48]
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_7 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_7 [get_fileset fir_7] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_7] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci] 
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,246 MB. GUI used memory: 162 MB. Current time: 2/6/24, 9:24:16 AM CST
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_5'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_5'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_5'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_5'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_5'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_5: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_5'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_5 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_5 [get_fileset fir_5] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_5] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_3'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_3'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_3'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_3'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_3'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_3: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_3'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_3 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_3 [get_fileset fir_3] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_3] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_1'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_1'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_1'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_1'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_1'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_1: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_1'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_1 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_1 [get_fileset fir_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_1] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_6'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_6'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_6'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_6'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_6'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_6: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_6'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_6 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_6 [get_fileset fir_6] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_6] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_4'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_4'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_4'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_4'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_4'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_4: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_4'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_4 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_4 [get_fileset fir_4] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_4] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_2'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_2'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_2'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_2'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_2'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_2: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_2'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_2 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_2 [get_fileset fir_2] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_2] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fir_0'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fir_0'... INFO: [IP_Flow 19-1686] Generating 'C Simulation' target for IP 'fir_0'... INFO: [IP_Flow 19-1686] Generating 'Test Bench' target for IP 'fir_0'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'fir_0'... INFO: [xilinx.com:ip:fir_compiler:7.2-1] fir_0: Coefficient Reload not selected, no files generated INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'fir_0'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// [Engine Memory]: 2,296 MB (+3945kb) [00:07:05]
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset fir_0 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top fir_0 [get_fileset fir_0] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset fir_0] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axi_mst_0'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axi_mst_0'... INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'axi_mst_0'... 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// Tcl Message: create_fileset -blockset axi_mst_0 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top axi_mst_0 [get_fileset axi_mst_0] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: move_files -fileset [get_fileset axi_mst_0] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: launch_run {dds_0_synth_1 fir_7_synth_1 fir_5_synth_1 fir_3_synth_1 fir_1_synth_1 fir_6_synth_1 fir_4_synth_1 fir_2_synth_1 fir_0_synth_1 axi_mst_0_synth_1} 
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// HMemoryUtils.trashcanNow. Engine heap size: 2,320 MB. GUI used memory: 165 MB. Current time: 2/6/24, 9:24:36 AM CST
+// Tcl Message: wait_on_run dds_0_synth_1  
+// Tcl Message: [Tue Feb  6 09:24:36 2024] Waiting for dds_0_synth_1 to finish... 
+// TclEventType: RUN_STATUS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,320 MB. GUI used memory: 165 MB. Current time: 2/6/24, 9:24:41 AM CST
+// Tcl Message: [Tue Feb  6 09:24:41 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:24:46 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:24:51 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:01 2024] Waiting for dds_0_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,320 MB. GUI used memory: 163 MB. Current time: 2/6/24, 9:25:11 AM CST
+// Tcl Message: [Tue Feb  6 09:25:11 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:21 2024] Waiting for dds_0_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:25:31 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:31 2024] dds_0_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:04 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16477 ; free virtual = 85842 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1  
+// Tcl Message: [Tue Feb  6 09:25:32 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:32 2024] dds_0_synth_1 finished [Tue Feb  6 09:25:32 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:37 2024] Waiting for fir_7_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,321 MB. GUI used memory: 164 MB. Current time: 2/6/24, 9:25:41 AM CST
+// Tcl Message: [Tue Feb  6 09:25:42 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:47 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:25:57 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:07 2024] Waiting for fir_7_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,321 MB. GUI used memory: 164 MB. Current time: 2/6/24, 9:26:11 AM CST
+// Tcl Message: [Tue Feb  6 09:26:17 2024] Waiting for fir_7_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:26:27 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:27 2024] fir_7_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16466 ; free virtual = 85838 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1  
+// Tcl Message: [Tue Feb  6 09:26:27 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:27 2024] dds_0_synth_1 finished [Tue Feb  6 09:26:27 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:27 2024] fir_7_synth_1 finished [Tue Feb  6 09:26:27 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:32 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:37 2024] Waiting for fir_5_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,323 MB. GUI used memory: 165 MB. Current time: 2/6/24, 9:26:41 AM CST
+// Tcl Message: [Tue Feb  6 09:26:42 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:26:52 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:02 2024] Waiting for fir_5_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,323 MB. GUI used memory: 165 MB. Current time: 2/6/24, 9:27:11 AM CST
+// Tcl Message: [Tue Feb  6 09:27:12 2024] Waiting for fir_5_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:27:22 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:22 2024] fir_5_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16439 ; free virtual = 85815 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1  
+// Tcl Message: [Tue Feb  6 09:27:22 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:22 2024] dds_0_synth_1 finished [Tue Feb  6 09:27:22 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:22 2024] fir_7_synth_1 finished [Tue Feb  6 09:27:22 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:22 2024] fir_5_synth_1 finished [Tue Feb  6 09:27:22 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:27 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:32 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:37 2024] Waiting for fir_3_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,323 MB. GUI used memory: 165 MB. Current time: 2/6/24, 9:27:41 AM CST
+// Tcl Message: [Tue Feb  6 09:27:47 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:27:57 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:07 2024] Waiting for fir_3_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,323 MB. GUI used memory: 166 MB. Current time: 2/6/24, 9:28:11 AM CST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:28:17 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:17 2024] fir_3_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16430 ; free virtual = 85811 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1 wait_on_run fir_1_synth_1  
+// Tcl Message: [Tue Feb  6 09:28:17 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:17 2024] dds_0_synth_1 finished [Tue Feb  6 09:28:17 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:17 2024] fir_7_synth_1 finished [Tue Feb  6 09:28:17 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:18 2024] fir_5_synth_1 finished [Tue Feb  6 09:28:18 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:18 2024] fir_3_synth_1 finished [Tue Feb  6 09:28:18 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:23 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:28 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:33 2024] Waiting for fir_1_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,326 MB. GUI used memory: 167 MB. Current time: 2/6/24, 9:28:41 AM CST
+// Tcl Message: [Tue Feb  6 09:28:43 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:28:53 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:03 2024] Waiting for fir_1_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,327 MB. GUI used memory: 167 MB. Current time: 2/6/24, 9:29:11 AM CST
+// Tcl Message: [Tue Feb  6 09:29:13 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:13 2024] fir_1_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16422 ; free virtual = 85808 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1 wait_on_run fir_1_synth_1 wait_on_run fir_6_synth_1  
+// Tcl Message: [Tue Feb  6 09:29:13 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:13 2024] dds_0_synth_1 finished [Tue Feb  6 09:29:13 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:13 2024] fir_7_synth_1 finished [Tue Feb  6 09:29:13 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:13 2024] fir_5_synth_1 finished [Tue Feb  6 09:29:13 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:13 2024] fir_3_synth_1 finished [Tue Feb  6 09:29:13 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:13 2024] fir_1_synth_1 finished [Tue Feb  6 09:29:13 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:18 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:23 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:28 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:38 2024] Waiting for fir_6_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,327 MB. GUI used memory: 168 MB. Current time: 2/6/24, 9:29:41 AM CST
+// Tcl Message: [Tue Feb  6 09:29:48 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:29:58 2024] Waiting for fir_6_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:30:08 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] fir_6_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16411 ; free virtual = 85802 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1 wait_on_run fir_1_synth_1 wait_on_run fir_6_synth_1 wait_on_run fir_4_synth_1  
+// Tcl Message: [Tue Feb  6 09:30:08 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] dds_0_synth_1 finished [Tue Feb  6 09:30:08 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] fir_7_synth_1 finished [Tue Feb  6 09:30:08 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] fir_5_synth_1 finished [Tue Feb  6 09:30:08 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] fir_3_synth_1 finished [Tue Feb  6 09:30:08 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] fir_1_synth_1 finished [Tue Feb  6 09:30:08 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:08 2024] fir_6_synth_1 finished [Tue Feb  6 09:30:08 2024] Waiting for fir_4_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,329 MB. GUI used memory: 170 MB. Current time: 2/6/24, 9:30:11 AM CST
+// Tcl Message: [Tue Feb  6 09:30:13 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:18 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:23 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:33 2024] Waiting for fir_4_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,329 MB. GUI used memory: 169 MB. Current time: 2/6/24, 9:30:41 AM CST
+// Tcl Message: [Tue Feb  6 09:30:43 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:30:53 2024] Waiting for fir_4_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:31:03 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:03 2024] fir_4_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 15424 ; free virtual = 84871 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1 wait_on_run fir_1_synth_1 wait_on_run fir_6_synth_1 wait_on_run fir_4_synth_1 wait_on_run fir_2_synth_1  
+// Tcl Message: [Tue Feb  6 09:31:04 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] dds_0_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] fir_7_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] fir_5_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] fir_3_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] fir_1_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] fir_6_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:04 2024] fir_4_synth_1 finished [Tue Feb  6 09:31:04 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:09 2024] Waiting for fir_2_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,329 MB. GUI used memory: 170 MB. Current time: 2/6/24, 9:31:11 AM CST
+// Tcl Message: [Tue Feb  6 09:31:14 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:19 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:29 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:39 2024] Waiting for fir_2_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,329 MB. GUI used memory: 170 MB. Current time: 2/6/24, 9:31:41 AM CST
+// Tcl Message: [Tue Feb  6 09:31:49 2024] Waiting for fir_2_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:31:59 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_2_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 15196 ; free virtual = 84685 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1 wait_on_run fir_1_synth_1 wait_on_run fir_6_synth_1 wait_on_run fir_4_synth_1 wait_on_run fir_2_synth_1 wait_on_run fir_0_synth_1  
+// Tcl Message: [Tue Feb  6 09:31:59 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] dds_0_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_7_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_5_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_3_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_1_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_6_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_4_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:31:59 2024] fir_2_synth_1 finished [Tue Feb  6 09:31:59 2024] Waiting for fir_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:04 2024] Waiting for fir_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:09 2024] Waiting for fir_0_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,331 MB. GUI used memory: 172 MB. Current time: 2/6/24, 9:32:11 AM CST
+// Tcl Message: [Tue Feb  6 09:32:14 2024] Waiting for fir_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:24 2024] Waiting for fir_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:34 2024] Waiting for fir_0_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,332 MB. GUI used memory: 172 MB. Current time: 2/6/24, 9:32:41 AM CST
+// Tcl Message: [Tue Feb  6 09:32:44 2024] Waiting for fir_0_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Tue Feb  6 09:32:54 2024] Waiting for fir_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:54 2024] fir_0_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:55 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 14901 ; free virtual = 84395 
+// Tcl Message: wait_on_run dds_0_synth_1 wait_on_run fir_7_synth_1 wait_on_run fir_5_synth_1 wait_on_run fir_3_synth_1 wait_on_run fir_1_synth_1 wait_on_run fir_6_synth_1 wait_on_run fir_4_synth_1 wait_on_run fir_2_synth_1 wait_on_run fir_0_synth_1 wait_on_run axi_mst_0_synth_1  
+// Tcl Message: [Tue Feb  6 09:32:54 2024] Waiting for dds_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:54 2024] dds_0_synth_1 finished [Tue Feb  6 09:32:54 2024] Waiting for fir_7_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:54 2024] fir_7_synth_1 finished [Tue Feb  6 09:32:54 2024] Waiting for fir_5_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:54 2024] fir_5_synth_1 finished [Tue Feb  6 09:32:54 2024] Waiting for fir_3_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:54 2024] fir_3_synth_1 finished [Tue Feb  6 09:32:55 2024] Waiting for fir_1_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:55 2024] fir_1_synth_1 finished [Tue Feb  6 09:32:55 2024] Waiting for fir_6_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:55 2024] fir_6_synth_1 finished [Tue Feb  6 09:32:55 2024] Waiting for fir_4_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:55 2024] fir_4_synth_1 finished [Tue Feb  6 09:32:55 2024] Waiting for fir_2_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:55 2024] fir_2_synth_1 finished [Tue Feb  6 09:32:55 2024] Waiting for fir_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:32:55 2024] fir_0_synth_1 finished [Tue Feb  6 09:32:55 2024] Waiting for axi_mst_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:33:00 2024] Waiting for axi_mst_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:33:05 2024] Waiting for axi_mst_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:33:10 2024] Waiting for axi_mst_0_synth_1 to finish... 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,337 MB. GUI used memory: 174 MB. Current time: 2/6/24, 9:33:11 AM CST
+// Tcl Message: [Tue Feb  6 09:33:20 2024] Waiting for axi_mst_0_synth_1 to finish... 
+// Tcl Message: [Tue Feb  6 09:33:30 2024] Waiting for axi_mst_0_synth_1 to finish... 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Tcl Message: [Tue Feb  6 09:33:35 2024] axi_mst_0_synth_1 finished 
+// Tcl Message: wait_on_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 8270.438 ; gain = 0.000 ; free physical = 16382 ; free virtual = 85878 
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: INFO: [Vivado 12-12493] Simulation top is 'tb' 
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// Tcl Message: INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.sim/sim_1/behav/xsim' 
+// Tcl Message: xvlog --incr --relax -L uvm -L axi_vip_v1_1_12 -L xilinx_vip -prj tb_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '4' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xbip_utils_v3_0_10 -L axi_utils_v2_0_6 -L xbip_pipe_v3_0_6 -L xbip_bram18k_v3_0_6 -L mult_gen_v12_0_18 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_dsp48_addsub_v3_0_6 -L xbip_dsp48_multadd_v3_0_6 -L dds_compiler_v6_0_22 -L fir_compiler_v7_2_18 -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_12 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,337 MB. GUI used memory: 174 MB. Current time: 2/6/24, 9:33:41 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,337 MB. GUI used memory: 174 MB. Current time: 2/6/24, 9:33:41 AM CST
+// Tcl Message: Vivado Simulator v2022.1 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved. Running: /home/tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xbip_utils_v3_0_10 -L axi_utils_v2_0_6 -L xbip_pipe_v3_0_6 -L xbip_bram18k_v3_0_6 -L mult_gen_v12_0_18 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_dsp48_addsub_v3_0_6 -L xbip_dsp48_multadd_v3_0_6 -L dds_compiler_v6_0_22 -L fir_compiler_v7_2_18 -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_12 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log  Using 8 slave threads. Starting static elaboration Pass Through NonSizing Optimizer 
+// TclEventType: LAUNCH_SIM
+// WARNING: HEventQueue.dispatchEvent() is taking  1253 ms.
+// TclEventType: LOAD_FEATURE
+// Tcl Message: Built simulation snapshot tb_behav 
+// Tcl Message: execute_script: Time (s): cpu = 00:00:46 ; elapsed = 00:00:17 . Memory (MB): peak = 8282.441 ; gain = 0.000 ; free physical = 16244 ; free virtual = 85874 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '18' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_behav -key {Behavioral:sim_1:Functional:tb} -tclbatch {tb.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// WARNING: HEventQueue.dispatchEvent() is taking  1239 ms.
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// WARNING: HEventQueue.dispatchEvent() is taking  1053 ms.
+// Elapsed time: 592 seconds
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: source tb.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,378 MB. GUI used memory: 180 MB. Current time: 2/6/24, 9:34:05 AM CST
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// Tcl Message: # run 1000ns 
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: xsim: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 8282.441 ; gain = 0.000 ; free physical = 16109 ; free virtual = 85743 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: launch_simulation: Time (s): cpu = 00:01:11 ; elapsed = 00:00:31 . Memory (MB): peak = 8282.441 ; gain = 12.004 ; free physical = 16109 ; free virtual = 85743 
+// 'd' command handler elapsed time: 596 seconds
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Run Simulation"); // e
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1442 ms. Increasing delay to 4326 ms.
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,452 MB (+43986kb) [00:16:45]
+// WARNING: HEventQueue.dispatchEvent() is taking  2782 ms.
+// [GUI Memory]: 244 MB (+5530kb) [00:17:01]
+// [GUI Memory]: 264 MB (+8893kb) [00:17:43]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 207 MB. Current time: 2/6/24, 10:04:06 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 128 MB. Current time: 2/6/24, 10:34:06 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 128 MB. Current time: 2/6/24, 11:04:06 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 11:34:06 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 12:04:06 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 126 MB. Current time: 2/6/24, 12:34:06 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 1:04:06 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 1:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 2:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 2:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 3:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,453 MB. GUI used memory: 127 MB. Current time: 2/6/24, 3:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/6/24, 4:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/6/24, 4:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 5:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 5:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 6:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 6:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 7:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 7:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 8:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 8:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 9:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 9:34:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 10:04:07 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/6/24, 10:34:08 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 11:04:08 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/6/24, 11:34:08 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/7/24, 12:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/7/24, 12:34:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/7/24, 1:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 1:34:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 2:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/7/24, 2:34:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/7/24, 3:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 3:34:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 4:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 4:34:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 5:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 5:34:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 6:04:08 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 6:34:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 7:04:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 7:34:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 8:04:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 8:34:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/7/24, 9:04:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 9:34:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 10:04:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 10:34:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 11:04:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 11:34:09 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 12:04:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 12:34:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 1:04:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 1:34:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 2:04:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 2:34:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 3:04:09 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 3:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 4:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 4:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 5:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 5:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 6:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 6:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 7:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 7:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 8:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 8:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 9:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 9:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 10:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 10:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 11:04:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/7/24, 11:34:10 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 12:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 12:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 1:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 1:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 2:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/8/24, 2:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 3:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 3:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 4:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 4:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 5:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 5:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 6:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 6:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 127 MB. Current time: 2/8/24, 7:04:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 7:34:11 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,454 MB. GUI used memory: 126 MB. Current time: 2/8/24, 8:04:11 AM CST
+// Elapsed time: 169022 seconds
+closeMainWindow("project_1 - [/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.xpr] - Vivado 2022.1"); // bb
+// Run Command: PAResourceCommand.PACommandNames_EXIT

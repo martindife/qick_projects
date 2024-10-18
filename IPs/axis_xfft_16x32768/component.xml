@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>user.org</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>axis_xfft_16x32768</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>m_axis</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TLAST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_tlast</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TUSER</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_tuser</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_axis</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axis_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axis_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>aclk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>aclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_BUSIF">m_axis:s_axis</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.ACLK.ASSOCIATED_RESET">aresetn</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>aresetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>aresetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.ARESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>axis_xfft_16x32768</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_xfft_9_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>5a08fcd7</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>axis_xfft_16x32768</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_xfft_9_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>5a08fcd7</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>f92e9879</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>aclk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>aresetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axis_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">511</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axis_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axis_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m_axis_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1023</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m_axis_tuser</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m_axis_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m_axis_tlast</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/xfft_0/xfft_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_genblk1[0].fft_i/xfft_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ctrl.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axis_xfft_16x32768.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_6e3291ce</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_xfft_9_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xsi:type="xilinx:componentRefType" xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="xfft" xilinx:version="9.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/xfft_0/xfft_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_genblk1[0].fft_i/xfft_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ctrl.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axis_xfft_16x32768.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_xfft_9_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="xfft" xilinx:version="9.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/axis_xfft_16x32768_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_f92e9879</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>AXIS XFFT, 16 parallel, 32768 points.</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">axis_xfft_16x32768_v1_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">zynquplus</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>AXIS XFFT, 16 x 32768</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:xpmLibraries>
+        <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
+      </xilinx:xpmLibraries>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-09-07T18:06:14Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63503bbe_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@444fe252_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@97e8837_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25c8aa79_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@118d95bc_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a9f367a_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d05947_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40214c84_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9c0e07c_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bbe02b6_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@366437c8_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7460d93e_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48b0ab85_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ddbd4aa_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f560533_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c62ce1e_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f38ba5_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20e9ce76_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e971c2f_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24873dfd_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53497048_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27f7590c_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50a69ad_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d6c969f_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d9dc037_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59011383_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28c93e3a_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@421fa25f_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45eecd7f_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@681c9732_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73d2ac35_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@102446bd_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c72287c_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@631d896a_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5030cc83_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1123288b_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@252e8dfc_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@421473_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50ad22a9_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41c4a759_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49722edb_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7174d04a_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52dccd41_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b9b54bc_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6acd496d_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@350e14f1_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cfd8309_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ecb0e33_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bdd88eb_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f2e7dee_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@baadc25_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b6724d7_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c80108d_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71702dba_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d3f1c21_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ff98a75_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73a89824_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58a6efbc_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fa90bfc_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@259d1cd4_ARCHIVE_LOCATION">/home/lstefana/v19.1/zcu111/fft_avg_ad_da/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@111d1815_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@abea3eb_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e48eacb_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b0314d0_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a31d3fe_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21c945c1_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@459334df_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@354e296_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@527e319d_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@152d6453_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@367e8ada_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@697257e1_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@383487f9_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77e3c353_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31365baf_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d8348f2_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@703e9389_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6db1ef65_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7153c748_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b542f14_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@494c3e65_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fd8e2b_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@364df8cc_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57715241_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@241875d8_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@185cbddb_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2af71108_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@458dd366_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@667f1014_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@796d133d_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71e4c846_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18521fac_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69acd3f7_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@755f6eea_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35c0ad27_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59b5adc6_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@728bc025_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5214e484_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53fcd1e8_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@384d5c2f_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f63988_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64874bcd_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5025a711_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21a05be5_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fb36a89_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f45d1bd_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75070cfb_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7718f84b_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25fdf2c9_ARCHIVE_LOCATION">/home/lstefana/v20.2/ip/axis_xfft_16x32768</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="649827c2"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4a73c84f"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="99f12f11"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="168fed02"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>

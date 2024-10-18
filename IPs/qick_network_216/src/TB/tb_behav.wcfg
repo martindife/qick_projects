@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_qick_network_simplex_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="\$unit_axi_mst_0_sv_61586796 " />
+            <top_module name="axi_mst_0_pkg" />
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="std" />
+            <top_module name="tb_qick_network_simplex" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="251.000001 us"></ZoomEndTime>
+      <Cursor1Time time="96.190021 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="40" />
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/t_time_abs1">
+      <obj_property name="ElementShortName">t_time_abs1[47:0]</obj_property>
+      <obj_property name="ObjectShortName">t_time_abs1[47:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/t_time_abs2">
+      <obj_property name="ElementShortName">t_time_abs2[47:0]</obj_property>
+      <obj_property name="ObjectShortName">t_time_abs2[47:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/t_time_abs3">
+      <obj_property name="ElementShortName">t_time_abs3[47:0]</obj_property>
+      <obj_property name="ObjectShortName">t_time_abs3[47:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/offset_t1_t2">
+      <obj_property name="ElementShortName">offset_t1_t2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">offset_t1_t2[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/offset_t1_t3">
+      <obj_property name="ElementShortName">offset_t1_t3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">offset_t1_t3[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/sync_pulse">
+      <obj_property name="ElementShortName">sync_pulse</obj_property>
+      <obj_property name="ObjectShortName">sync_pulse</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group438">
+      <obj_property name="label">T_Commands</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/core_start_1">
+         <obj_property name="ElementShortName">core_start_1</obj_property>
+         <obj_property name="ObjectShortName">core_start_1</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/core_stop_1">
+         <obj_property name="ElementShortName">core_stop_1</obj_property>
+         <obj_property name="ObjectShortName">core_stop_1</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/tnet_dt1_1">
+         <obj_property name="ElementShortName">tnet_dt1_1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tnet_dt1_1[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/tnet_dt2_1">
+         <obj_property name="ElementShortName">tnet_dt2_1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tnet_dt2_1[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_init_1">
+         <obj_property name="ElementShortName">time_init_1</obj_property>
+         <obj_property name="ObjectShortName">time_init_1</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_updt_1">
+         <obj_property name="ElementShortName">time_updt_1</obj_property>
+         <obj_property name="ObjectShortName">time_updt_1</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/time_off_dt_1">
+         <obj_property name="ElementShortName">time_off_dt_1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">time_off_dt_1[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_init_2">
+         <obj_property name="ElementShortName">time_init_2</obj_property>
+         <obj_property name="ObjectShortName">time_init_2</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_updt_2">
+         <obj_property name="ElementShortName">time_updt_2</obj_property>
+         <obj_property name="ObjectShortName">time_updt_2</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/time_off_dt_2">
+         <obj_property name="ElementShortName">time_off_dt_2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">time_off_dt_2[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_init_3">
+         <obj_property name="ElementShortName">time_init_3</obj_property>
+         <obj_property name="ObjectShortName">time_init_3</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_updt_3">
+         <obj_property name="ElementShortName">time_updt_3</obj_property>
+         <obj_property name="ObjectShortName">time_updt_3</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/time_off_dt_3">
+         <obj_property name="ElementShortName">time_off_dt_3[31:0]</obj_property>
+         <obj_property name="ObjectShortName">time_off_dt_3[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_rst_1">
+         <obj_property name="ElementShortName">time_rst_1</obj_property>
+         <obj_property name="ObjectShortName">time_rst_1</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_rst_2">
+         <obj_property name="ElementShortName">time_rst_2</obj_property>
+         <obj_property name="ObjectShortName">time_rst_2</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_rst_3">
+         <obj_property name="ElementShortName">time_rst_3</obj_property>
+         <obj_property name="ObjectShortName">time_rst_3</obj_property>
+         <obj_property name="CustomSignalColor">#0000FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/core_start_2">
+         <obj_property name="ElementShortName">core_start_2</obj_property>
+         <obj_property name="ObjectShortName">core_start_2</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/core_stop_2">
+         <obj_property name="ElementShortName">core_stop_2</obj_property>
+         <obj_property name="ObjectShortName">core_stop_2</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/tnet_dt1_2">
+         <obj_property name="ElementShortName">tnet_dt1_2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tnet_dt1_2[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/tnet_dt2_2">
+         <obj_property name="ElementShortName">tnet_dt2_2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tnet_dt2_2[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/core_start_3">
+         <obj_property name="ElementShortName">core_start_3</obj_property>
+         <obj_property name="ObjectShortName">core_start_3</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/core_stop_3">
+         <obj_property name="ElementShortName">core_stop_3</obj_property>
+         <obj_property name="ObjectShortName">core_stop_3</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/tnet_dt1_3">
+         <obj_property name="ElementShortName">tnet_dt1_3[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tnet_dt1_3[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_qick_network_simplex/tnet_dt2_3">
+         <obj_property name="ElementShortName">tnet_dt2_3[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tnet_dt2_3[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /TNET_CTRL">
+      <obj_property name="ElementShortName">TNET_CTRL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TNET_CTRL[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /ctrl_cmd_req_s">
+      <obj_property name="ElementShortName">ctrl_cmd_req_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrl_cmd_req_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/main_st">
+      <obj_property name="ElementShortName">main_st[31:0]</obj_property>
+      <obj_property name="ObjectShortName">main_st[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/task_st">
+      <obj_property name="ElementShortName">task_st[31:0]</obj_property>
+      <obj_property name="ObjectShortName">task_st[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/cmd_st">
+      <obj_property name="ElementShortName">cmd_st[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cmd_st[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /TPROC_CTRL/time_ctrl_st">
+      <obj_property name="ElementShortName">time_ctrl_st[31:0]</obj_property>
+      <obj_property name="ObjectShortName">time_ctrl_st[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/main_LC">
+      <obj_property name="ElementShortName">main_LC</obj_property>
+      <obj_property name="ObjectShortName">main_LC</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group557">
+      <obj_property name="label">ID_CMD</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_updt_off">
+         <obj_property name="ElementShortName">id_updt_off</obj_property>
+         <obj_property name="ObjectShortName">id_updt_off</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_get_net">
+         <obj_property name="ElementShortName">id_get_net</obj_property>
+         <obj_property name="ObjectShortName">id_get_net</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_set_net">
+         <obj_property name="ElementShortName">id_set_net</obj_property>
+         <obj_property name="ObjectShortName">id_set_net</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_sync_1">
+         <obj_property name="ElementShortName">id_sync_1</obj_property>
+         <obj_property name="ObjectShortName">id_sync_1</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_sync_2">
+         <obj_property name="ElementShortName">id_sync_2</obj_property>
+         <obj_property name="ObjectShortName">id_sync_2</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_sync_3">
+         <obj_property name="ElementShortName">id_sync_3</obj_property>
+         <obj_property name="ObjectShortName">id_sync_3</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_sync_4">
+         <obj_property name="ElementShortName">id_sync_4</obj_property>
+         <obj_property name="ObjectShortName">id_sync_4</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_get_off">
+         <obj_property name="ElementShortName">id_get_off</obj_property>
+         <obj_property name="ObjectShortName">id_get_off</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_get_dt">
+         <obj_property name="ElementShortName">id_get_dt</obj_property>
+         <obj_property name="ObjectShortName">id_get_dt</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_set_dt">
+         <obj_property name="ElementShortName">id_set_dt</obj_property>
+         <obj_property name="ObjectShortName">id_set_dt</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_rst_time">
+         <obj_property name="ElementShortName">id_rst_time</obj_property>
+         <obj_property name="ObjectShortName">id_rst_time</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_start_core">
+         <obj_property name="ElementShortName">id_start_core</obj_property>
+         <obj_property name="ObjectShortName">id_start_core</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_stop_core">
+         <obj_property name="ElementShortName">id_stop_core</obj_property>
+         <obj_property name="ObjectShortName">id_stop_core</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_get_cond">
+         <obj_property name="ElementShortName">id_get_cond</obj_property>
+         <obj_property name="ObjectShortName">id_get_cond</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_qick_network_simplex/TNET_1/\COM_SIMPLEX.QICK_NET /CMD_PROCESSING/id_set_cond">
+         <obj_property name="ElementShortName">id_set_cond</obj_property>
+         <obj_property name="ObjectShortName">id_set_cond</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/cc">
+      <obj_property name="ElementShortName">cc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/sync_pulse">
+      <obj_property name="ElementShortName">sync_pulse</obj_property>
+      <obj_property name="ObjectShortName">sync_pulse</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/axi_dt">
+      <obj_property name="ElementShortName">axi_dt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_dt[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_dest">
+      <obj_property name="ElementShortName">axi_dest</obj_property>
+      <obj_property name="ObjectShortName">axi_dest</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/ready_1">
+      <obj_property name="ElementShortName">ready_1</obj_property>
+      <obj_property name="ObjectShortName">ready_1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/time_updt_i">
+      <obj_property name="ElementShortName">time_updt_i</obj_property>
+      <obj_property name="ObjectShortName">time_updt_i</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/axi_tx_tdata_B_TX_1">
+      <obj_property name="ElementShortName">axi_tx_tdata_B_TX_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tdata_B_TX_1[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/axi_tx_tdata_B_TX_2">
+      <obj_property name="ElementShortName">axi_tx_tdata_B_TX_2[63:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tdata_B_TX_2[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_qick_network_simplex/axi_tx_tdata_B_TX_3">
+      <obj_property name="ElementShortName">axi_tx_tdata_B_TX_3[63:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tdata_B_TX_3[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/txn_B_1">
+      <obj_property name="ElementShortName">txn_B_1</obj_property>
+      <obj_property name="ObjectShortName">txn_B_1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/txn_B_2">
+      <obj_property name="ElementShortName">txn_B_2</obj_property>
+      <obj_property name="ObjectShortName">txn_B_2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/txn_B_3">
+      <obj_property name="ElementShortName">txn_B_3</obj_property>
+      <obj_property name="ObjectShortName">txn_B_3</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/txp_B_1">
+      <obj_property name="ElementShortName">txp_B_1</obj_property>
+      <obj_property name="ObjectShortName">txp_B_1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/txp_B_2">
+      <obj_property name="ElementShortName">txp_B_2</obj_property>
+      <obj_property name="ObjectShortName">txp_B_2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/txp_B_3">
+      <obj_property name="ElementShortName">txp_B_3</obj_property>
+      <obj_property name="ObjectShortName">txp_B_3</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_tx_tvalid_B_TX_3">
+      <obj_property name="ElementShortName">axi_tx_tvalid_B_TX_3</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tvalid_B_TX_3</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_tx_tlast_B_TX_3">
+      <obj_property name="ElementShortName">axi_tx_tlast_B_TX_3</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tlast_B_TX_3</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_tx_tvalid_B_TX_1">
+      <obj_property name="ElementShortName">axi_tx_tvalid_B_TX_1</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tvalid_B_TX_1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_tx_tlast_B_TX_1">
+      <obj_property name="ElementShortName">axi_tx_tlast_B_TX_1</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tlast_B_TX_1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/ready_2">
+      <obj_property name="ElementShortName">ready_2</obj_property>
+      <obj_property name="ObjectShortName">ready_2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_tx_tvalid_B_TX_2">
+      <obj_property name="ElementShortName">axi_tx_tvalid_B_TX_2</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tvalid_B_TX_2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_tx_tlast_B_TX_2">
+      <obj_property name="ElementShortName">axi_tx_tlast_B_TX_2</obj_property>
+      <obj_property name="ObjectShortName">axi_tx_tlast_B_TX_2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/ready_3">
+      <obj_property name="ElementShortName">ready_3</obj_property>
+      <obj_property name="ObjectShortName">ready_3</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_qick_network_simplex/axi_rx_tready_RX">
+      <obj_property name="ElementShortName">axi_rx_tready_RX</obj_property>
+      <obj_property name="ObjectShortName">axi_rx_tready_RX</obj_property>
+   </wvobject>
+</wave_config>

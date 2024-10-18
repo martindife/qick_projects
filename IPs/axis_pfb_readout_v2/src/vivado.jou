@@ -1,0 +1,180 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Feb  6 09:17:22 2024
+# Process ID: 2647733
+# Current directory: /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src
+# Command line: vivado
+# Log file: /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/vivado.log
+# Journal file: /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/vivado.jou
+# Running On: teddy01.fnal.gov, OS: Linux, CPU Frequency: 3100.000 MHz, CPU Physical cores: 14, Host memory: 66799 MB
+#-----------------------------------------------------------
+start_gui
+create_project project_1 /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1 -part xczu49dr-ffvf1760-2-e
+set_property board_part xilinx.com:zcu216:part0:2.0 [current_project]
+add_files -norecurse {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/firs.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_slv.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb_mux.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ddsprod_v.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pimod.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/pfb_dds_mux.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ddsprod.sv /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axis_pfb_readout_v2.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+source fir/add.tcl
+update_compile_order -fileset sources_1
+upgrade_ip [get_ips  {fir_0 fir_2 fir_4 fir_6 fir_1 fir_3 fir_5 fir_7}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {fir_0 fir_2 fir_4 fir_6 fir_1 fir_3 fir_5 fir_7}] -no_script -sync -force -quiet
+convert_ips [get_files  {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci}]
+export_ip_user_files -of_objects  [get_files  {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci}] -sync -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+set_property coreContainer.enable 1 [current_project]
+convert_ips [get_files  {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci}]
+export_ip_user_files -of_objects  [get_files  {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci}] -sync -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+add_files -norecurse {/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/synth_reg_w_init.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssrfft_8x8.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/conv_pkg.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/xlclockdriver_rd.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/single_reg_w_init.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/synth_reg.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/srl33e.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/ssr_8x8_entity_declarations.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/synth_reg_reg.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/srl17e.vhd /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/ssrfft_8x8/ssr_fft_8x8/ssr_8x8.vhd}
+update_compile_order -fileset sources_1
+add_files -norecurse /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci
+export_ip_user_files -of_objects  [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+update_compile_order -fileset sources_1
+upgrade_ip -vlnv xilinx.com:ip:dds_compiler:6.0 [get_ips  dds_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips dds_0] -no_script -sync -force -quiet
+convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci]
+export_ip_user_files -of_objects  [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] -sync -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci]
+export_ip_user_files -of_objects  [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] -sync -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/tb/tb.sv
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+add_files -norecurse /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci
+export_ip_user_files -of_objects  [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+update_compile_order -fileset sources_1
+upgrade_ip -vlnv xilinx.com:ip:axi_vip:1.1 [get_ips  axi_mst_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips axi_mst_0] -no_script -sync -force -quiet
+convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci]
+export_ip_user_files -of_objects  [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] -sync -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+convert_ips [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci]
+export_ip_user_files -of_objects  [get_files  /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] -sync -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -force -quiet
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset dds_0
+set_property top dds_0 [get_fileset dds_0]
+move_files -fileset [get_fileset dds_0] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/dds_0/dds_0.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_7
+set_property top fir_7 [get_fileset fir_7]
+move_files -fileset [get_fileset fir_7] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_7/fir_7.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_5
+set_property top fir_5 [get_fileset fir_5]
+move_files -fileset [get_fileset fir_5] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_5/fir_5.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_3
+set_property top fir_3 [get_fileset fir_3]
+move_files -fileset [get_fileset fir_3] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_3/fir_3.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_1
+set_property top fir_1 [get_fileset fir_1]
+move_files -fileset [get_fileset fir_1] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_1/fir_1.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_6
+set_property top fir_6 [get_fileset fir_6]
+move_files -fileset [get_fileset fir_6] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_6/fir_6.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_4
+set_property top fir_4 [get_fileset fir_4]
+move_files -fileset [get_fileset fir_4] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_4/fir_4.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_2
+set_property top fir_2 [get_fileset fir_2]
+move_files -fileset [get_fileset fir_2] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_2/fir_2.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset fir_0
+set_property top fir_0 [get_fileset fir_0]
+move_files -fileset [get_fileset fir_0] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/fir/fir_0/fir_0.xci]
+generate_target all [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci]
+export_ip_user_files -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci] -directory /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files -ipstatic_source_dir /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_fileset -blockset axi_mst_0
+set_property top axi_mst_0 [get_fileset axi_mst_0]
+move_files -fileset [get_fileset axi_mst_0] [get_files -of_objects [get_fileset sources_1] /home/lstefana/rfsoc-vivado-2022-1/ip/axis_pfb_readout_v2/src/axi_mst_0/axi_mst_0.xci]
+launch_run {dds_0_synth_1 fir_7_synth_1 fir_5_synth_1 fir_3_synth_1 fir_1_synth_1 fir_6_synth_1 fir_4_synth_1 fir_2_synth_1 fir_0_synth_1 axi_mst_0_synth_1}
+wait_on_run dds_0_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+wait_on_run fir_1_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+wait_on_run fir_1_synth_1
+wait_on_run fir_6_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+wait_on_run fir_1_synth_1
+wait_on_run fir_6_synth_1
+wait_on_run fir_4_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+wait_on_run fir_1_synth_1
+wait_on_run fir_6_synth_1
+wait_on_run fir_4_synth_1
+wait_on_run fir_2_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+wait_on_run fir_1_synth_1
+wait_on_run fir_6_synth_1
+wait_on_run fir_4_synth_1
+wait_on_run fir_2_synth_1
+wait_on_run fir_0_synth_1
+
+wait_on_run dds_0_synth_1
+wait_on_run fir_7_synth_1
+wait_on_run fir_5_synth_1
+wait_on_run fir_3_synth_1
+wait_on_run fir_1_synth_1
+wait_on_run fir_6_synth_1
+wait_on_run fir_4_synth_1
+wait_on_run fir_2_synth_1
+wait_on_run fir_0_synth_1
+wait_on_run axi_mst_0_synth_1
+
+launch_simulation
+source tb.tcl
+close_sim
