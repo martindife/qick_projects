@@ -1,0 +1,24 @@
+# Created by .ignore support plugin (hsz.mobi)
+### JupyterNotebooks template
+# gitignore template for Jupyter Notebooks
+# website: http://jupyter.org/
+
+### Linux template
+*~
+.*.swp
+
+
+# IPython
+profile_default/
+ipython_config.py
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Vivado
+.Xil/
+*.log
+*.jou
+vivado_pid*.str
+
+top_*
+
