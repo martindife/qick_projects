@@ -21,4 +21,5 @@ ipython_config.py
 vivado_pid*.str
 
 top_*
+QICK_*
 

@@ -7,17 +7,20 @@
 ## Customizable Parameters
 
 # Project Name 
-set _xil_proj_name_  "QICK_4x2_Spin_qtt"
-set timing_const     "timing_4x2_spin.xdc"
-set ios_const        "ios_4x2_spin.xdc"
-set bd_file          "bd_4x2_spin_1adc_2dac_20t_qtt_23-1.tcl"
+set _xil_proj_name_  "top_4x2_XX"
+set timing_const     "timing_4x2_XX.xdc"
+set ios_const        "ios_4x2_XX.xdc"
+set block_design     "bd_4x2_XX_23-1.tcl"
 set board            "4x2"
 
-# Posible board values : 111, 216, 4x2
+# Posible board values : 111, 208, 216, 4x2
+
+
 
 ###############################################################################
 ## Automated Script
 ###############################################################################
+
 
 ###############################################################################
 # SET DIRECTORIES
@@ -32,6 +35,20 @@ if { [info exists ::origin_dir_loc] } {
 
 # Set the directory path for the original project from where this script was exported
 set orig_proj_dir "[file normalize "$origin_dir/"]"
+
+
+###############################################################################
+# CHECK ALL THE FILES
+set ip_dir        "$origin_dir/ip"
+set bd_file       "$origin_dir/bd/$bd_file"
+set timing_file   "$origin_dir/xdc/$timing_const"
+set io_file       "$origin_dir/xdc/$ios_const"
+
+if { ![file isdirectory $ip_dir     ] } { puts " Could not find local IP Directory $ip_dir " }
+if { ![file isfile      $bd_file    ] } { puts " Could not find local Block Design $bd_file " }
+if { ![file isfile      $timing_file] } { puts " Could not find local Time Constraint $timing_file " }
+if { ![file isfile      $io_file    ] } { puts " Could not find local IO Constraint $io_file " }
+
 
 ###############################################################################
 # PROJECT
@@ -59,6 +76,11 @@ if { ${board} eq "111" } {
    # Board zcu_216
    puts "Board ZCU_216 Selected"
    set_property -name "board_part" -value "xilinx.com:zcu216:part0:2.0" -objects $obj
+   set_property -name "platform.board_id" -value "zcu216" -objects $obj
+} elseif { ${board} eq "208" } {
+   # Board zcu_208
+   puts "Board ZCU_208 Selected"
+   set_property -name "board_part" -value "xilinx.com:zcu208:part0:2.0" -objects $obj
    set_property -name "platform.board_id" -value "zcu216" -objects $obj
 } elseif { ${board} eq "4x2" } {
    # Board rfsoc_4x2
@@ -93,7 +115,7 @@ puts "SET IP REPOSITORY"
 
 # Set IP repository paths
 set obj [get_filesets sources_1]
-set_property "ip_repo_paths" "[file normalize "$origin_dir/IPs"]" $obj
+set_property "ip_repo_paths" "[file normalize $ip_dir]" $obj
 
 # Rebuild user ip_repo's index before adding any source files
 update_ip_catalog -rebuild
@@ -108,10 +130,7 @@ set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
 
-set const_files [list \
-	[ file normalize "$origin_dir/xdc/$timing_const"] 	\
-	[ file normalize "$origin_dir/xdc/$ios_const"] 	\
-]
+
 
 add_files -fileset $obj $const_files
 
@@ -120,6 +139,7 @@ add_files -fileset $obj $const_files
 # BLOCK DESIGN
 
 # Source Block Design.
+
 source [file normalize "$origin_dir/bd/$bd_file"]
 
 

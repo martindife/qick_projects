@@ -7,10 +7,10 @@
 ## Customizable Parameters
 
 # Project Name 
-set _xil_proj_name_  "QICK_4x2_Spin_qtt"
-set timing_const     "timing_4x2_spin.xdc"
-set ios_const        "ios_4x2_spin.xdc"
-set bd_file          "bd_4x2_spin_1adc_2dac_20t_qtt_23-1.tcl"
+set _xil_proj_name_  "QICK_4x2_Xcom"
+set timing_const     "timing_4x2_xcom.xdc"
+set ios_const        "ios_4x2_xcom.xdc"
+set bd_file          "bd_4x2_xcom_23-1.tcl"
 set board            "4x2"
 
 # Posible board values : 111, 216, 4x2
@@ -143,7 +143,7 @@ add_files -fileset $obj $files
 
 # Modify Current Synthesis
 set_property strategy Flow_RuntimeOptimized [get_runs synth_1]
-set_property name Fast_synthesis [get_runs synth_1]
+set_property name Flow_Fast [get_runs synth_1]
 set_property strategy Flow_Quick [get_runs impl_1]
 set_property name Fast_Implementation [get_runs impl_1]
 
