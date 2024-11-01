@@ -43,8 +43,8 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xczu49dr-ffvf1760-2-e
-   set_property BOARD_PART xilinx.com:zcu216:part0:2.0 [current_project]
+   create_project project_1 myproj -part xczu48dr-fsvg1517-2-e
+   set_property BOARD_PART xilinx.com:zcu208:part0:2.0 [current_project]
 }
 
 
@@ -110,16 +110,6 @@ if { ${design_name} eq "" } {
 
 }
 
-  # Add USER_COMMENTS on $design_name
-  set_property USER_COMMENTS.comment_0 "RF_IN_CLK > 491.52 Mhz
-c_clk >  245.76 Mhz 
-t_clk >  491.52 Mhz 
----------------------------------------
-GSPS              > OUT_FREQ   >  IN_FREQ
-ADC0 3.93216 > 245.76 Mhz > 491.52 Mhz 
-ADC0 3.93216 > 245.76 Mhz > 491.52 Mhz
-DAC0 7.86432 > 491.52 Mhz > 491.52 Mhz" [get_bd_designs $design_name]
-
 common::send_gid_msg -ssname BD::TCL -id 2005 -severity "INFO" "Currently the variable <design_name> is equal to \"$design_name\"."
 
 if { $nRet != 0 } {
@@ -136,19 +126,18 @@ if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
 xilinx.com:ip:axi_dma:7.1\
 xilinx.com:ip:smartconnect:1.0\
-xilinx.com:ip:axis_clock_converter:1.1\
 user.org:user:axis_constant:1.0\
 user.org:user:axis_register_slice_nb:1.0\
 xilinx.com:ip:axis_register_slice:1.1\
 user.org:user:axis_signal_gen_v6:1.0\
 xilinx.com:ip:axis_switch:1.1\
-xilinx.com:ip:clk_wiz:6.0\
+Fermi:user:qick_processor:2.0\
+Fermi:user:qick_time_tagger:1.0\
 xilinx.com:ip:proc_sys_reset:5.0\
 user.org:user:sg_translator:1.0\
 xilinx.com:ip:usp_rf_data_converter:2.6\
 xilinx.com:ip:zynq_ultra_ps_e:3.5\
-Fermi:user:qick_processor:2.0\
-Fermi:user:qick_time_tagger:1.0\
+xilinx.com:ip:clk_wiz:6.0\
 "
 
    set list_ips_missing ""
@@ -212,58 +201,18 @@ proc create_root_design { parentCell } {
 
 
   # Create interface ports
-  set dac0_clk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 dac0_clk ]
-
   set sysref_in [ create_bd_intf_port -mode Slave -vlnv xilinx.com:display_usp_rf_data_converter:diff_pins_rtl:1.0 sysref_in ]
+
+  set vout02 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 vout02 ]
+
+  set adc0_clk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 adc0_clk ]
 
   set vout00 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 vout00 ]
 
-  set adc2_clk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 adc2_clk ]
-
-  set dac2_clk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 dac2_clk ]
-
-  set vout20 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:diff_analog_io_rtl:1.0 vout20 ]
+  set dac0_clk_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 dac0_clk_0 ]
 
 
   # Create ports
-  set PMOD0_0 [ create_bd_port -dir O PMOD0_0 ]
-  set PMOD0_1 [ create_bd_port -dir O PMOD0_1 ]
-  set PMOD0_2 [ create_bd_port -dir O PMOD0_2 ]
-  set PMOD0_3 [ create_bd_port -dir O PMOD0_3 ]
-  set PMOD0_4 [ create_bd_port -dir O PMOD0_4 ]
-  set PMOD0_5 [ create_bd_port -dir O PMOD0_5 ]
-  set PMOD0_6 [ create_bd_port -dir O PMOD0_6 ]
-  set PMOD0_7 [ create_bd_port -dir O PMOD0_7 ]
-  set PMOD1_0 [ create_bd_port -dir O PMOD1_0 ]
-  set PMOD1_1 [ create_bd_port -dir O PMOD1_1 ]
-  set PMOD1_2 [ create_bd_port -dir O PMOD1_2 ]
-  set PMOD1_3 [ create_bd_port -dir O PMOD1_3 ]
-  set PMOD1_4 [ create_bd_port -dir O PMOD1_4 ]
-  set PMOD1_5 [ create_bd_port -dir O PMOD1_5 ]
-  set PMOD1_6 [ create_bd_port -dir O PMOD1_6 ]
-  set PMOD1_7 [ create_bd_port -dir O PMOD1_7 ]
-  set PMOD01_0 [ create_bd_port -dir O PMOD01_0 ]
-  set PMOD01_1 [ create_bd_port -dir O PMOD01_1 ]
-  set PMOD01_2 [ create_bd_port -dir O PMOD01_2 ]
-  set PMOD01_3 [ create_bd_port -dir O PMOD01_3 ]
-
-  # Create instance: axi_dma_avg, and set properties
-  set axi_dma_avg [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_avg ]
-  set_property -dict [list \
-    CONFIG.c_include_mm2s {0} \
-    CONFIG.c_include_sg {0} \
-    CONFIG.c_sg_length_width {26} \
-  ] $axi_dma_avg
-
-
-  # Create instance: axi_dma_buf, and set properties
-  set axi_dma_buf [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_buf ]
-  set_property -dict [list \
-    CONFIG.c_include_mm2s {0} \
-    CONFIG.c_include_sg {0} \
-    CONFIG.c_sg_length_width {26} \
-  ] $axi_dma_buf
-
 
   # Create instance: axi_dma_gen, and set properties
   set axi_dma_gen [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_gen ]
@@ -296,28 +245,17 @@ proc create_root_design { parentCell } {
 
   # Create instance: axi_smc, and set properties
   set axi_smc [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 axi_smc ]
-  set_property CONFIG.NUM_SI {6} $axi_smc
+  set_property CONFIG.NUM_SI {4} $axi_smc
 
-
-  # Create instance: axis_cc_sg_0, and set properties
-  set axis_cc_sg_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_clock_converter:1.1 axis_cc_sg_0 ]
-
-  # Create instance: axis_cc_sg_1, and set properties
-  set axis_cc_sg_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_clock_converter:1.1 axis_cc_sg_1 ]
 
   # Create instance: axis_constant_0, and set properties
   set axis_constant_0 [ create_bd_cell -type ip -vlnv user.org:user:axis_constant:1.0 axis_constant_0 ]
   set_property CONFIG.DATA_WIDTH {64} $axis_constant_0
 
 
-  # Create instance: axis_register_slice_0, and set properties
-  set axis_register_slice_0 [ create_bd_cell -type ip -vlnv user.org:user:axis_register_slice_nb:1.0 axis_register_slice_0 ]
-  set_property CONFIG.B {256} $axis_register_slice_0
-
-
-  # Create instance: axis_register_slice_1, and set properties
-  set axis_register_slice_1 [ create_bd_cell -type ip -vlnv user.org:user:axis_register_slice_nb:1.0 axis_register_slice_1 ]
-  set_property CONFIG.B {256} $axis_register_slice_1
+  # Create instance: axis_register_slice_01, and set properties
+  set axis_register_slice_01 [ create_bd_cell -type ip -vlnv user.org:user:axis_register_slice_nb:1.0 axis_register_slice_01 ]
+  set_property CONFIG.B {256} $axis_register_slice_01
 
 
   # Create instance: axis_register_slice_4, and set properties
@@ -327,19 +265,6 @@ proc create_root_design { parentCell } {
 
   # Create instance: axis_signal_gen_v6_0, and set properties
   set axis_signal_gen_v6_0 [ create_bd_cell -type ip -vlnv user.org:user:axis_signal_gen_v6:1.0 axis_signal_gen_v6_0 ]
-
-  # Create instance: axis_signal_gen_v6_1, and set properties
-  set axis_signal_gen_v6_1 [ create_bd_cell -type ip -vlnv user.org:user:axis_signal_gen_v6:1.0 axis_signal_gen_v6_1 ]
-
-  # Create instance: axis_switch_avg, and set properties
-  set axis_switch_avg [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_switch:1.1 axis_switch_avg ]
-  set_property CONFIG.ROUTING_MODE {1} $axis_switch_avg
-
-
-  # Create instance: axis_switch_buf, and set properties
-  set axis_switch_buf [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_switch:1.1 axis_switch_buf ]
-  set_property CONFIG.ROUTING_MODE {1} $axis_switch_buf
-
 
   # Create instance: axis_switch_gen, and set properties
   set axis_switch_gen [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_switch:1.1 axis_switch_gen ]
@@ -351,42 +276,64 @@ proc create_root_design { parentCell } {
   ] $axis_switch_gen
 
 
-  # Create instance: clk_adc2_x2, and set properties
-  set clk_adc2_x2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_adc2_x2 ]
-  set_property -dict [list \
-    CONFIG.CLKIN1_JITTER_PS {32.550000000000004} \
-    CONFIG.CLKOUT1_JITTER {93.829} \
-    CONFIG.CLKOUT1_PHASE_ERROR {133.949} \
-    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {583.68} \
-    CONFIG.MMCM_CLKFBOUT_MULT_F {19.000} \
-    CONFIG.MMCM_CLKIN1_PERIOD {3.255} \
-    CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
-    CONFIG.MMCM_CLKOUT0_DIVIDE_F {2.000} \
-    CONFIG.MMCM_DIVCLK_DIVIDE {5} \
-    CONFIG.RESET_PORT {resetn} \
-    CONFIG.RESET_TYPE {ACTIVE_LOW} \
-  ] $clk_adc2_x2
-
-
   # Create instance: ps8_0_axi_periph, and set properties
   set ps8_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps8_0_axi_periph ]
-  set_property CONFIG.NUM_MI {13} $ps8_0_axi_periph
+  set_property CONFIG.NUM_MI {9} $ps8_0_axi_periph
+
+
+  # Create instance: qick_processor_0, and set properties
+  set qick_processor_0 [ create_bd_cell -type ip -vlnv Fermi:user:qick_processor:2.0 qick_processor_0 ]
+  set_property -dict [list \
+    CONFIG.ARITH {0} \
+    CONFIG.CORE_CTRL {0} \
+    CONFIG.CUSTOM_PERIPH {1} \
+    CONFIG.DEBUG {0} \
+    CONFIG.DIVIDER {0} \
+    CONFIG.DMEM_AW {10} \
+    CONFIG.DUAL_CORE {0} \
+    CONFIG.EXT_FLAG {0} \
+    CONFIG.GEN_SYNC {0} \
+    CONFIG.IN_PORT_QTY {1} \
+    CONFIG.IO_CTRL {0} \
+    CONFIG.LFSR {0} \
+    CONFIG.OUT_DPORT_DW {4} \
+    CONFIG.OUT_DPORT_QTY {1} \
+    CONFIG.OUT_TIME {0} \
+    CONFIG.OUT_TRIG_QTY {1} \
+    CONFIG.OUT_WPORT_QTY {2} \
+    CONFIG.PMEM_AW {10} \
+    CONFIG.QCOM {0} \
+    CONFIG.QNET {0} \
+    CONFIG.REG_AW {3} \
+    CONFIG.TIME_CTRL {0} \
+    CONFIG.TIME_READ {1} \
+    CONFIG.WMEM_AW {8} \
+  ] $qick_processor_0
+
+
+  # Create instance: qick_time_tagger_0, and set properties
+  set qick_time_tagger_0 [ create_bd_cell -type ip -vlnv Fermi:user:qick_time_tagger:1.0 qick_time_tagger_0 ]
+  set_property -dict [list \
+    CONFIG.ARM_FIFO_AW {10} \
+    CONFIG.ARM_STORE {0} \
+    CONFIG.CMP_INTER {4} \
+    CONFIG.CMP_SLOPE {0} \
+    CONFIG.DEBUG {0} \
+    CONFIG.EXT_ARM {1} \
+    CONFIG.SMP_FIFO_AW {10} \
+    CONFIG.SMP_STORE {1} \
+    CONFIG.TAG_FIFO_AW {10} \
+  ] $qick_time_tagger_0
 
 
   # Create instance: rst_100, and set properties
   set rst_100 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_100 ]
 
-  # Create instance: rst_adc2_x2, and set properties
-  set rst_adc2_x2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_adc2_x2 ]
+  # Create instance: rst_adc0, and set properties
+  set rst_adc0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_adc0 ]
 
   # Create instance: rst_dac0, and set properties
   set rst_dac0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_dac0 ]
-
-  # Create instance: rst_dac2, and set properties
-  set rst_dac2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_dac2 ]
-
-  # Create instance: rst_tproc, and set properties
-  set rst_tproc [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_tproc ]
 
   # Create instance: sg_translator_0, and set properties
   set sg_translator_0 [ create_bd_cell -type ip -vlnv user.org:user:sg_translator:1.0 sg_translator_0 ]
@@ -397,39 +344,21 @@ proc create_root_design { parentCell } {
   # Create instance: usp_rf_data_converter_0, and set properties
   set usp_rf_data_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:usp_rf_data_converter:2.6 usp_rf_data_converter_0 ]
   set_property -dict [list \
-    CONFIG.ADC2_Outclk_Freq {307.200} \
-    CONFIG.ADC2_PLL_Enable {true} \
-    CONFIG.ADC2_Refclk_Freq {245.760} \
-    CONFIG.ADC2_Sampling_Rate {2.4576} \
-    CONFIG.ADC_Coarse_Mixer_Freq20 {3} \
-    CONFIG.ADC_Coarse_Mixer_Freq21 {3} \
-    CONFIG.ADC_Data_Width20 {8} \
-    CONFIG.ADC_Decimation_Mode20 {1} \
-    CONFIG.ADC_Decimation_Mode21 {1} \
-    CONFIG.ADC_Mixer_Type20 {1} \
-    CONFIG.ADC_Mixer_Type21 {1} \
-    CONFIG.ADC_Slice00_Enable {false} \
-    CONFIG.ADC_Slice02_Enable {false} \
-    CONFIG.ADC_Slice20_Enable {true} \
-    CONFIG.ADC_Slice21_Enable {true} \
-    CONFIG.DAC0_Outclk_Freq {583.680} \
+    CONFIG.ADC0_Outclk_Freq {291.840} \
+    CONFIG.ADC0_PLL_Enable {true} \
+    CONFIG.ADC0_Refclk_Freq {245.760} \
+    CONFIG.ADC0_Sampling_Rate {4.66944} \
+    CONFIG.ADC_Data_Width00 {8} \
+    CONFIG.ADC_Decimation_Mode00 {1} \
     CONFIG.DAC0_PLL_Enable {true} \
     CONFIG.DAC0_Refclk_Freq {245.760} \
-    CONFIG.DAC0_Sampling_Rate {9.33888} \
-    CONFIG.DAC2_Outclk_Freq {399.360} \
-    CONFIG.DAC2_PLL_Enable {true} \
-    CONFIG.DAC2_Refclk_Freq {245.760} \
-    CONFIG.DAC2_Sampling_Rate {6.38976} \
-    CONFIG.DAC_Coarse_Mixer_Freq00 {3} \
-    CONFIG.DAC_Coarse_Mixer_Freq20 {3} \
-    CONFIG.DAC_Interpolation_Mode00 {1} \
-    CONFIG.DAC_Interpolation_Mode20 {1} \
-    CONFIG.DAC_Mixer_Type00 {1} \
-    CONFIG.DAC_Mixer_Type20 {1} \
+    CONFIG.DAC0_Sampling_Rate {9.8304} \
     CONFIG.DAC_Mode00 {3} \
-    CONFIG.DAC_Mode20 {3} \
+    CONFIG.DAC_Mode02 {3} \
     CONFIG.DAC_Slice00_Enable {true} \
-    CONFIG.DAC_Slice20_Enable {true} \
+    CONFIG.DAC_Slice02_Enable {true} \
+    CONFIG.DAC_Slice20_Enable {false} \
+    CONFIG.DAC_Slice22_Enable {false} \
   ] $usp_rf_data_converter_0
 
 
@@ -1254,12 +1183,12 @@ proc create_root_design { parentCell } {
     CONFIG.PSU__PRESET_APPLIED {1} \
     CONFIG.PSU__PROTECTION__DDR_SEGMENTS {NONE} \
     CONFIG.PSU__PROTECTION__ENABLE {0} \
-    CONFIG.PSU__PROTECTION__FPD_SEGMENTS {SA:0xFD1A0000; SIZE:1280; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD000000; SIZE:64; UNIT:KB; RegionTZ:Secure;\
-WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD010000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD020000; SIZE:64; UNIT:KB; RegionTZ:Secure;\
-WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD030000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD040000; SIZE:64; UNIT:KB; RegionTZ:Secure;\
-WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD050000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD610000; SIZE:512; UNIT:KB; RegionTZ:Secure;\
-WrAllowed:Read/Write; subsystemId:PMU Firmware     |      SA:0xFD5D0000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware     |     SA:0xFD1A0000 ; SIZE:1280; UNIT:KB;\
-RegionTZ:Secure ; WrAllowed:Read/Write; subsystemId:Secure Subsystem} \
+    CONFIG.PSU__PROTECTION__FPD_SEGMENTS {SA:0xFD1A0000; SIZE:1280; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD000000; SIZE:64; UNIT:KB; RegionTZ:Secure;\
+WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD010000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD020000; SIZE:64; UNIT:KB;\
+RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD030000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD040000;\
+SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD050000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |  \
+    SA:0xFD610000; SIZE:512; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware      |       SA:0xFD5D0000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU\
+Firmware      |      SA:0xFD1A0000 ; SIZE:1280; UNIT:KB; RegionTZ:Secure ; WrAllowed:Read/Write; subsystemId:Secure Subsystem} \
     CONFIG.PSU__PROTECTION__LPD_SEGMENTS {SA:0xFF980000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware| SA:0xFF5E0000; SIZE:2560; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write;\
 subsystemId:PMU Firmware| SA:0xFFCC0000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware| SA:0xFF180000; SIZE:768; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU\
 Firmware| SA:0xFF410000; SIZE:640; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware| SA:0xFFA70000; SIZE:64; UNIT:KB; RegionTZ:Secure; WrAllowed:Read/Write; subsystemId:PMU Firmware|\
@@ -1432,161 +1361,114 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
   ] $zynq_ultra_ps_e_0
 
 
-  # Create instance: qick_processor_0, and set properties
-  set qick_processor_0 [ create_bd_cell -type ip -vlnv Fermi:user:qick_processor:2.0 qick_processor_0 ]
+  # Create instance: clk_adc0_x2, and set properties
+  set clk_adc0_x2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_adc0_x2 ]
   set_property -dict [list \
-    CONFIG.CUSTOM_PERIPH {1} \
-    CONFIG.DEBUG {0} \
-    CONFIG.DMEM_AW {10} \
-    CONFIG.EXT_FLAG {0} \
-    CONFIG.IN_PORT_QTY {1} \
-    CONFIG.IO_CTRL {0} \
-    CONFIG.LFSR {0} \
-    CONFIG.OUT_DPORT_DW {4} \
-    CONFIG.OUT_DPORT_QTY {1} \
-    CONFIG.OUT_TRIG_QTY {21} \
-    CONFIG.OUT_WPORT_QTY {2} \
-    CONFIG.PMEM_AW {10} \
-    CONFIG.REG_AW {3} \
-    CONFIG.TIME_READ {1} \
-    CONFIG.TNET {0} \
-    CONFIG.WMEM_AW {8} \
-  ] $qick_processor_0
+    CONFIG.CLKOUT1_JITTER {72.420} \
+    CONFIG.CLKOUT1_PHASE_ERROR {78.978} \
+    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {583.68} \
+    CONFIG.MMCM_CLKFBOUT_MULT_F {4.000} \
+    CONFIG.MMCM_CLKOUT0_DIVIDE_F {2.000} \
+    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+    CONFIG.RESET_PORT {resetn} \
+    CONFIG.RESET_TYPE {ACTIVE_LOW} \
+  ] $clk_adc0_x2
 
 
-  # Create instance: qick_time_tagger_0, and set properties
-  set qick_time_tagger_0 [ create_bd_cell -type ip -vlnv Fermi:user:qick_time_tagger:1.0 qick_time_tagger_0 ]
-  set_property -dict [list \
-    CONFIG.ARM_FIFO_AW {14} \
-    CONFIG.CMP_INTER {4} \
-    CONFIG.CMP_SLOPE {0} \
-    CONFIG.DEBUG {0} \
-    CONFIG.EXT_ARM {1} \
-    CONFIG.SMP_FIFO_AW {15} \
-    CONFIG.SMP_STORE {1} \
-    CONFIG.TAG_FIFO_AW {19} \
-  ] $qick_time_tagger_0
+  # Create instance: rst_tproc, and set properties
+  set rst_tproc [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_tproc ]
 
+  # Create instance: axis_signal_gen_v6_1, and set properties
+  set axis_signal_gen_v6_1 [ create_bd_cell -type ip -vlnv user.org:user:axis_signal_gen_v6:1.0 axis_signal_gen_v6_1 ]
+
+  # Create instance: axis_register_slice_11, and set properties
+  set axis_register_slice_11 [ create_bd_cell -type ip -vlnv user.org:user:axis_register_slice_nb:1.0 axis_register_slice_11 ]
+  set_property CONFIG.B {256} $axis_register_slice_11
+
+
+  # Create instance: axis_register_slice_00, and set properties
+  set axis_register_slice_00 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_register_slice:1.1 axis_register_slice_00 ]
+
+  # Create instance: axis_register_slice_10, and set properties
+  set axis_register_slice_10 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_register_slice:1.1 axis_register_slice_10 ]
 
   # Create interface connections
-  connect_bd_intf_net -intf_net adc0_clk1_1 [get_bd_intf_ports adc2_clk] [get_bd_intf_pins usp_rf_data_converter_0/adc2_clk]
-  connect_bd_intf_net -intf_net axi_dma_0_M_AXI_MM2S [get_bd_intf_pins axi_dma_tproc/M_AXI_MM2S] [get_bd_intf_pins axi_smc/S04_AXI]
-  connect_bd_intf_net -intf_net axi_dma_0_M_AXI_S2MM [get_bd_intf_pins axi_dma_tproc/M_AXI_S2MM] [get_bd_intf_pins axi_smc/S05_AXI]
-  connect_bd_intf_net -intf_net axi_dma_0_M_AXI_S2MM1 [get_bd_intf_pins axi_dma_qtt/M_AXI_S2MM] [get_bd_intf_pins axi_smc/S02_AXI]
-  connect_bd_intf_net -intf_net axi_dma_avg_M_AXI_S2MM [get_bd_intf_pins axi_dma_avg/M_AXI_S2MM] [get_bd_intf_pins axi_smc/S00_AXI]
-  connect_bd_intf_net -intf_net axi_dma_buf_M_AXI_S2MM [get_bd_intf_pins axi_dma_buf/M_AXI_S2MM] [get_bd_intf_pins axi_smc/S01_AXI]
+  connect_bd_intf_net -intf_net adc0_clk1_1 [get_bd_intf_ports adc0_clk] [get_bd_intf_pins usp_rf_data_converter_0/adc0_clk]
   connect_bd_intf_net -intf_net axi_dma_gen_M_AXIS_MM2S [get_bd_intf_pins axi_dma_gen/M_AXIS_MM2S] [get_bd_intf_pins axis_switch_gen/S00_AXIS]
-  connect_bd_intf_net -intf_net axi_dma_gen_M_AXI_MM2S [get_bd_intf_pins axi_dma_gen/M_AXI_MM2S] [get_bd_intf_pins axi_smc/S03_AXI]
+  connect_bd_intf_net -intf_net axi_dma_gen_M_AXI_MM2S [get_bd_intf_pins axi_dma_gen/M_AXI_MM2S] [get_bd_intf_pins axi_smc/S00_AXI]
+  connect_bd_intf_net -intf_net axi_dma_qtt_M_AXI_S2MM [get_bd_intf_pins axi_dma_qtt/M_AXI_S2MM] [get_bd_intf_pins axi_smc/S01_AXI]
   connect_bd_intf_net -intf_net axi_dma_tproc_M_AXIS_MM2S [get_bd_intf_pins axi_dma_tproc/M_AXIS_MM2S] [get_bd_intf_pins qick_processor_0/s_dma_axis_i]
+  connect_bd_intf_net -intf_net axi_dma_tproc_M_AXI_MM2S [get_bd_intf_pins axi_dma_tproc/M_AXI_MM2S] [get_bd_intf_pins axi_smc/S02_AXI]
+  connect_bd_intf_net -intf_net axi_dma_tproc_M_AXI_S2MM [get_bd_intf_pins axi_dma_tproc/M_AXI_S2MM] [get_bd_intf_pins axi_smc/S03_AXI]
   connect_bd_intf_net -intf_net axi_smc_M00_AXI [get_bd_intf_pins axi_smc/M00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HPC0_FPD]
-  connect_bd_intf_net -intf_net axis_cc_sg_0_M_AXIS [get_bd_intf_pins axis_cc_sg_0/M_AXIS] [get_bd_intf_pins axis_signal_gen_v6_0/s1_axis]
-  connect_bd_intf_net -intf_net axis_cc_sg_1_M_AXIS [get_bd_intf_pins axis_cc_sg_1/M_AXIS] [get_bd_intf_pins axis_signal_gen_v6_1/s1_axis]
   connect_bd_intf_net -intf_net axis_constant_0_m_axis [get_bd_intf_pins axis_constant_0/m_axis] [get_bd_intf_pins qick_processor_0/s0_axis]
-  connect_bd_intf_net -intf_net axis_register_slice_1_m_axis [get_bd_intf_pins axis_register_slice_1/m_axis] [get_bd_intf_pins usp_rf_data_converter_0/s20_axis]
+  connect_bd_intf_net -intf_net axis_register_slice_01_m_axis [get_bd_intf_pins axis_register_slice_01/m_axis] [get_bd_intf_pins usp_rf_data_converter_0/s00_axis]
+  connect_bd_intf_net -intf_net axis_register_slice_11_m_axis [get_bd_intf_pins axis_register_slice_11/m_axis] [get_bd_intf_pins usp_rf_data_converter_0/s02_axis]
+  connect_bd_intf_net -intf_net axis_register_slice_3_M_AXIS [get_bd_intf_pins axis_register_slice_00/M_AXIS] [get_bd_intf_pins axis_signal_gen_v6_0/s1_axis]
   connect_bd_intf_net -intf_net axis_register_slice_4_M_AXIS [get_bd_intf_pins axis_register_slice_4/M_AXIS] [get_bd_intf_pins qick_time_tagger_0/s0_axis_adc0]
-  connect_bd_intf_net -intf_net axis_register_slice_6_m_axis [get_bd_intf_pins axis_register_slice_0/m_axis] [get_bd_intf_pins usp_rf_data_converter_0/s00_axis]
-  connect_bd_intf_net -intf_net axis_signal_gen_v6_0_m_axis [get_bd_intf_pins axis_register_slice_0/s_axis] [get_bd_intf_pins axis_signal_gen_v6_0/m_axis]
-  connect_bd_intf_net -intf_net axis_signal_gen_v6_1_m_axis [get_bd_intf_pins axis_signal_gen_v6_1/m_axis] [get_bd_intf_pins axis_register_slice_1/s_axis]
-  connect_bd_intf_net -intf_net axis_switch_avg_M00_AXIS [get_bd_intf_pins axi_dma_avg/S_AXIS_S2MM] [get_bd_intf_pins axis_switch_avg/M00_AXIS]
-  connect_bd_intf_net -intf_net axis_switch_buf_M00_AXIS [get_bd_intf_pins axi_dma_buf/S_AXIS_S2MM] [get_bd_intf_pins axis_switch_buf/M00_AXIS]
+  connect_bd_intf_net -intf_net axis_register_slice_5_M_AXIS [get_bd_intf_pins axis_register_slice_10/M_AXIS] [get_bd_intf_pins axis_signal_gen_v6_1/s1_axis]
+  connect_bd_intf_net -intf_net axis_signal_gen_v6_0_m_axis [get_bd_intf_pins axis_register_slice_01/s_axis] [get_bd_intf_pins axis_signal_gen_v6_0/m_axis]
+  connect_bd_intf_net -intf_net axis_signal_gen_v6_1_m_axis [get_bd_intf_pins axis_signal_gen_v6_1/m_axis] [get_bd_intf_pins axis_register_slice_11/s_axis]
   connect_bd_intf_net -intf_net axis_switch_gen_M00_AXIS [get_bd_intf_pins axis_signal_gen_v6_0/s0_axis] [get_bd_intf_pins axis_switch_gen/M00_AXIS]
   connect_bd_intf_net -intf_net axis_switch_gen_M01_AXIS [get_bd_intf_pins axis_switch_gen/M01_AXIS] [get_bd_intf_pins axis_signal_gen_v6_1/s0_axis]
-  connect_bd_intf_net -intf_net dac0_clk_1 [get_bd_intf_ports dac0_clk] [get_bd_intf_pins usp_rf_data_converter_0/dac0_clk]
-  connect_bd_intf_net -intf_net dac2_clk_1 [get_bd_intf_ports dac2_clk] [get_bd_intf_pins usp_rf_data_converter_0/dac2_clk]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M00_AXI [get_bd_intf_pins ps8_0_axi_periph/M00_AXI] [get_bd_intf_pins axi_dma_avg/S_AXI_LITE]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M01_AXI [get_bd_intf_pins ps8_0_axi_periph/M01_AXI] [get_bd_intf_pins axi_dma_buf/S_AXI_LITE]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M02_AXI [get_bd_intf_pins ps8_0_axi_periph/M02_AXI] [get_bd_intf_pins axi_dma_gen/S_AXI_LITE]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M03_AXI [get_bd_intf_pins ps8_0_axi_periph/M03_AXI] [get_bd_intf_pins axi_dma_qtt/S_AXI_LITE]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M04_AXI [get_bd_intf_pins ps8_0_axi_periph/M04_AXI] [get_bd_intf_pins axi_dma_tproc/S_AXI_LITE]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M05_AXI [get_bd_intf_pins ps8_0_axi_periph/M05_AXI] [get_bd_intf_pins axis_signal_gen_v6_0/s_axi]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M06_AXI [get_bd_intf_pins ps8_0_axi_periph/M06_AXI] [get_bd_intf_pins axis_signal_gen_v6_1/s_axi]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M07_AXI [get_bd_intf_pins ps8_0_axi_periph/M07_AXI] [get_bd_intf_pins axis_switch_avg/S_AXI_CTRL]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M08_AXI [get_bd_intf_pins ps8_0_axi_periph/M08_AXI] [get_bd_intf_pins axis_switch_buf/S_AXI_CTRL]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M09_AXI [get_bd_intf_pins ps8_0_axi_periph/M09_AXI] [get_bd_intf_pins axis_switch_gen/S_AXI_CTRL]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M10_AXI [get_bd_intf_pins ps8_0_axi_periph/M10_AXI] [get_bd_intf_pins qick_processor_0/s_axi]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M11_AXI [get_bd_intf_pins ps8_0_axi_periph/M11_AXI] [get_bd_intf_pins qick_time_tagger_0/s_axi]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M12_AXI [get_bd_intf_pins ps8_0_axi_periph/M12_AXI] [get_bd_intf_pins usp_rf_data_converter_0/s_axi]
+  connect_bd_intf_net -intf_net dac0_clk_0_1 [get_bd_intf_ports dac0_clk_0] [get_bd_intf_pins usp_rf_data_converter_0/dac0_clk]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M00_AXI [get_bd_intf_pins ps8_0_axi_periph/M00_AXI] [get_bd_intf_pins axi_dma_gen/S_AXI_LITE]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M01_AXI [get_bd_intf_pins ps8_0_axi_periph/M01_AXI] [get_bd_intf_pins axi_dma_qtt/S_AXI_LITE]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M02_AXI [get_bd_intf_pins ps8_0_axi_periph/M02_AXI] [get_bd_intf_pins axi_dma_tproc/S_AXI_LITE]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M03_AXI [get_bd_intf_pins ps8_0_axi_periph/M03_AXI] [get_bd_intf_pins axis_signal_gen_v6_0/s_axi]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M04_AXI [get_bd_intf_pins ps8_0_axi_periph/M04_AXI] [get_bd_intf_pins axis_signal_gen_v6_1/s_axi]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M05_AXI [get_bd_intf_pins ps8_0_axi_periph/M05_AXI] [get_bd_intf_pins axis_switch_gen/S_AXI_CTRL]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M06_AXI [get_bd_intf_pins ps8_0_axi_periph/M06_AXI] [get_bd_intf_pins qick_processor_0/s_axi]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M07_AXI [get_bd_intf_pins ps8_0_axi_periph/M07_AXI] [get_bd_intf_pins qick_time_tagger_0/s_axi]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M08_AXI [get_bd_intf_pins ps8_0_axi_periph/M08_AXI] [get_bd_intf_pins usp_rf_data_converter_0/s_axi]
   connect_bd_intf_net -intf_net qick_processor_0_QPeriphA [get_bd_intf_pins qick_processor_0/QPeriphA] [get_bd_intf_pins qick_time_tagger_0/qick_peripheral]
   connect_bd_intf_net -intf_net qick_processor_0_m0_axis [get_bd_intf_pins qick_processor_0/m0_axis] [get_bd_intf_pins sg_translator_1/s_tproc_axis]
   connect_bd_intf_net -intf_net qick_processor_0_m1_axis [get_bd_intf_pins qick_processor_0/m1_axis] [get_bd_intf_pins sg_translator_0/s_tproc_axis]
   connect_bd_intf_net -intf_net qick_processor_0_m_dma_axis_o [get_bd_intf_pins axi_dma_tproc/S_AXIS_S2MM] [get_bd_intf_pins qick_processor_0/m_dma_axis_o]
   connect_bd_intf_net -intf_net qick_time_tagger_0_m_axis_dma [get_bd_intf_pins qick_time_tagger_0/m_axis_dma] [get_bd_intf_pins axi_dma_qtt/S_AXIS_S2MM]
-  connect_bd_intf_net -intf_net sg_translator_0_m_gen_v6_axis [get_bd_intf_pins axis_cc_sg_0/S_AXIS] [get_bd_intf_pins sg_translator_0/m_gen_v6_axis]
-  connect_bd_intf_net -intf_net sg_translator_1_m_gen_v6_axis [get_bd_intf_pins sg_translator_1/m_gen_v6_axis] [get_bd_intf_pins axis_cc_sg_1/S_AXIS]
+  connect_bd_intf_net -intf_net sg_translator_0_m_gen_v6_axis [get_bd_intf_pins sg_translator_0/m_gen_v6_axis] [get_bd_intf_pins axis_register_slice_00/S_AXIS]
+  connect_bd_intf_net -intf_net sg_translator_1_m_gen_v6_axis [get_bd_intf_pins sg_translator_1/m_gen_v6_axis] [get_bd_intf_pins axis_register_slice_10/S_AXIS]
   connect_bd_intf_net -intf_net sysref_in_1 [get_bd_intf_ports sysref_in] [get_bd_intf_pins usp_rf_data_converter_0/sysref_in]
-  connect_bd_intf_net -intf_net usp_rf_data_converter_0_m20_axis [get_bd_intf_pins usp_rf_data_converter_0/m20_axis] [get_bd_intf_pins axis_register_slice_4/S_AXIS]
+  connect_bd_intf_net -intf_net usp_rf_data_converter_0_m20_axis [get_bd_intf_pins usp_rf_data_converter_0/m00_axis] [get_bd_intf_pins axis_register_slice_4/S_AXIS]
   connect_bd_intf_net -intf_net usp_rf_data_converter_0_vout00 [get_bd_intf_ports vout00] [get_bd_intf_pins usp_rf_data_converter_0/vout00]
-  connect_bd_intf_net -intf_net usp_rf_data_converter_0_vout20 [get_bd_intf_ports vout20] [get_bd_intf_pins usp_rf_data_converter_0/vout20]
+  connect_bd_intf_net -intf_net usp_rf_data_converter_0_vout02 [get_bd_intf_ports vout02] [get_bd_intf_pins usp_rf_data_converter_0/vout02]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD] [get_bd_intf_pins ps8_0_axi_periph/S00_AXI]
 
   # Create port connections
-  connect_bd_net -net Net1 [get_bd_pins rst_tproc/peripheral_aresetn] [get_bd_pins axis_constant_0/m_axis_aresetn] [get_bd_pins qick_processor_0/c_resetn] [get_bd_pins qick_time_tagger_0/c_aresetn]
-  connect_bd_net -net clk_adc2_x2_clk_out1 [get_bd_pins clk_adc2_x2/clk_out1] [get_bd_pins axis_cc_sg_0/s_axis_aclk] [get_bd_pins axis_cc_sg_1/s_axis_aclk] [get_bd_pins axis_register_slice_4/aclk] [get_bd_pins rst_adc2_x2/slowest_sync_clk] [get_bd_pins sg_translator_0/aclk] [get_bd_pins sg_translator_1/aclk] [get_bd_pins usp_rf_data_converter_0/m2_axis_aclk] [get_bd_pins qick_processor_0/t_clk_i] [get_bd_pins qick_time_tagger_0/adc_clk]
-  connect_bd_net -net clk_adc2_x2_locked [get_bd_pins clk_adc2_x2/locked] [get_bd_pins rst_adc2_x2/dcm_locked]
-  connect_bd_net -net qick_processor_0_trig_0_o [get_bd_pins qick_processor_0/trig_0_o] [get_bd_ports PMOD0_0]
-  connect_bd_net -net qick_processor_0_trig_10_o [get_bd_pins qick_processor_0/trig_10_o] [get_bd_ports PMOD1_0]
-  connect_bd_net -net qick_processor_0_trig_11_o [get_bd_pins qick_processor_0/trig_11_o] [get_bd_ports PMOD1_1]
-  connect_bd_net -net qick_processor_0_trig_12_o [get_bd_pins qick_processor_0/trig_12_o] [get_bd_ports PMOD1_2]
-  connect_bd_net -net qick_processor_0_trig_13_o [get_bd_pins qick_processor_0/trig_13_o] [get_bd_ports PMOD1_3]
-  connect_bd_net -net qick_processor_0_trig_14_o [get_bd_pins qick_processor_0/trig_14_o] [get_bd_ports PMOD1_4]
-  connect_bd_net -net qick_processor_0_trig_15_o [get_bd_pins qick_processor_0/trig_15_o] [get_bd_ports PMOD1_5]
-  connect_bd_net -net qick_processor_0_trig_16_o [get_bd_pins qick_processor_0/trig_16_o] [get_bd_ports PMOD1_6]
-  connect_bd_net -net qick_processor_0_trig_17_o [get_bd_pins qick_processor_0/trig_17_o] [get_bd_ports PMOD1_7]
-  connect_bd_net -net qick_processor_0_trig_18_o [get_bd_pins qick_processor_0/trig_18_o] [get_bd_ports PMOD01_2]
-  connect_bd_net -net qick_processor_0_trig_19_o [get_bd_pins qick_processor_0/trig_19_o] [get_bd_ports PMOD01_3]
-  connect_bd_net -net qick_processor_0_trig_1_o [get_bd_pins qick_processor_0/trig_1_o] [get_bd_ports PMOD0_1]
-  connect_bd_net -net qick_processor_0_trig_20_o [get_bd_pins qick_processor_0/trig_20_o] [get_bd_pins qick_time_tagger_0/arm_i]
-  connect_bd_net -net qick_processor_0_trig_2_o [get_bd_pins qick_processor_0/trig_2_o] [get_bd_ports PMOD0_2]
-  connect_bd_net -net qick_processor_0_trig_3_o [get_bd_pins qick_processor_0/trig_3_o] [get_bd_ports PMOD0_3]
-  connect_bd_net -net qick_processor_0_trig_4_o [get_bd_pins qick_processor_0/trig_4_o] [get_bd_ports PMOD0_4]
-  connect_bd_net -net qick_processor_0_trig_5_o [get_bd_pins qick_processor_0/trig_5_o] [get_bd_ports PMOD0_5]
-  connect_bd_net -net qick_processor_0_trig_6_o [get_bd_pins qick_processor_0/trig_6_o] [get_bd_ports PMOD0_6]
-  connect_bd_net -net qick_processor_0_trig_7_o [get_bd_pins qick_processor_0/trig_7_o] [get_bd_ports PMOD0_7]
-  connect_bd_net -net qick_processor_0_trig_8_o [get_bd_pins qick_processor_0/trig_8_o] [get_bd_ports PMOD01_0]
-  connect_bd_net -net qick_processor_0_trig_9_o [get_bd_pins qick_processor_0/trig_9_o] [get_bd_ports PMOD01_1]
-  connect_bd_net -net rst_adc2_x2_peripheral_aresetn [get_bd_pins rst_adc2_x2/peripheral_aresetn] [get_bd_pins axis_cc_sg_0/s_axis_aresetn] [get_bd_pins axis_cc_sg_1/s_axis_aresetn] [get_bd_pins axis_register_slice_4/aresetn] [get_bd_pins sg_translator_0/aresetn] [get_bd_pins sg_translator_1/aresetn] [get_bd_pins usp_rf_data_converter_0/m2_axis_aresetn] [get_bd_pins qick_processor_0/t_resetn] [get_bd_pins qick_time_tagger_0/adc_aresetn]
-  connect_bd_net -net rst_dac0_peripheral_aresetn [get_bd_pins rst_dac0/peripheral_aresetn] [get_bd_pins axis_cc_sg_0/m_axis_aresetn] [get_bd_pins axis_register_slice_0/aresetn] [get_bd_pins axis_signal_gen_v6_0/aresetn] [get_bd_pins usp_rf_data_converter_0/s0_axis_aresetn]
-  connect_bd_net -net rst_dac2_peripheral_aresetn [get_bd_pins rst_dac2/peripheral_aresetn] [get_bd_pins axis_cc_sg_1/m_axis_aresetn] [get_bd_pins axis_register_slice_1/aresetn] [get_bd_pins axis_signal_gen_v6_1/aresetn] [get_bd_pins usp_rf_data_converter_0/s2_axis_aresetn]
-  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins rst_100/peripheral_aresetn] [get_bd_pins axi_dma_avg/axi_resetn] [get_bd_pins axi_dma_buf/axi_resetn] [get_bd_pins axi_dma_gen/axi_resetn] [get_bd_pins axi_dma_qtt/axi_resetn] [get_bd_pins axi_dma_tproc/axi_resetn] [get_bd_pins axi_smc/aresetn] [get_bd_pins axis_signal_gen_v6_0/s_axi_aresetn] [get_bd_pins axis_signal_gen_v6_0/s0_axis_aresetn] [get_bd_pins axis_signal_gen_v6_1/s_axi_aresetn] [get_bd_pins axis_signal_gen_v6_1/s0_axis_aresetn] [get_bd_pins axis_switch_avg/aresetn] [get_bd_pins axis_switch_avg/s_axi_ctrl_aresetn] [get_bd_pins axis_switch_buf/aresetn] [get_bd_pins axis_switch_buf/s_axi_ctrl_aresetn] [get_bd_pins axis_switch_gen/aresetn] [get_bd_pins axis_switch_gen/s_axi_ctrl_aresetn] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/M02_ARESETN] [get_bd_pins ps8_0_axi_periph/M03_ARESETN] [get_bd_pins ps8_0_axi_periph/M04_ARESETN] [get_bd_pins ps8_0_axi_periph/M05_ARESETN] [get_bd_pins ps8_0_axi_periph/M06_ARESETN] [get_bd_pins ps8_0_axi_periph/M07_ARESETN] [get_bd_pins ps8_0_axi_periph/M08_ARESETN] [get_bd_pins ps8_0_axi_periph/M09_ARESETN] [get_bd_pins ps8_0_axi_periph/M10_ARESETN] [get_bd_pins ps8_0_axi_periph/M11_ARESETN] [get_bd_pins ps8_0_axi_periph/M12_ARESETN] [get_bd_pins usp_rf_data_converter_0/s_axi_aresetn] [get_bd_pins qick_processor_0/ps_resetn] [get_bd_pins qick_time_tagger_0/ps_aresetn]
-  connect_bd_net -net usp_rf_data_converter_0_clk_adc2 [get_bd_pins usp_rf_data_converter_0/clk_adc2] [get_bd_pins axis_constant_0/m_axis_aclk] [get_bd_pins clk_adc2_x2/clk_in1] [get_bd_pins rst_tproc/slowest_sync_clk] [get_bd_pins qick_processor_0/c_clk_i] [get_bd_pins qick_time_tagger_0/c_clk]
-  connect_bd_net -net usp_rf_data_converter_0_clk_dac0 [get_bd_pins usp_rf_data_converter_0/clk_dac0] [get_bd_pins axis_cc_sg_0/m_axis_aclk] [get_bd_pins axis_register_slice_0/aclk] [get_bd_pins axis_signal_gen_v6_0/aclk] [get_bd_pins rst_dac0/slowest_sync_clk] [get_bd_pins usp_rf_data_converter_0/s0_axis_aclk]
-  connect_bd_net -net usp_rf_data_converter_0_clk_dac2 [get_bd_pins usp_rf_data_converter_0/clk_dac2] [get_bd_pins axis_cc_sg_1/m_axis_aclk] [get_bd_pins axis_register_slice_1/aclk] [get_bd_pins axis_signal_gen_v6_1/aclk] [get_bd_pins rst_dac2/slowest_sync_clk] [get_bd_pins usp_rf_data_converter_0/s2_axis_aclk]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins axi_dma_avg/s_axi_lite_aclk] [get_bd_pins axi_dma_avg/m_axi_s2mm_aclk] [get_bd_pins axi_dma_buf/s_axi_lite_aclk] [get_bd_pins axi_dma_buf/m_axi_s2mm_aclk] [get_bd_pins axi_dma_gen/s_axi_lite_aclk] [get_bd_pins axi_dma_gen/m_axi_mm2s_aclk] [get_bd_pins axi_dma_qtt/s_axi_lite_aclk] [get_bd_pins axi_dma_qtt/m_axi_s2mm_aclk] [get_bd_pins axi_dma_tproc/s_axi_lite_aclk] [get_bd_pins axi_dma_tproc/m_axi_mm2s_aclk] [get_bd_pins axi_dma_tproc/m_axi_s2mm_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins axis_signal_gen_v6_0/s_axi_aclk] [get_bd_pins axis_signal_gen_v6_0/s0_axis_aclk] [get_bd_pins axis_signal_gen_v6_1/s_axi_aclk] [get_bd_pins axis_signal_gen_v6_1/s0_axis_aclk] [get_bd_pins axis_switch_avg/aclk] [get_bd_pins axis_switch_avg/s_axi_ctrl_aclk] [get_bd_pins axis_switch_buf/aclk] [get_bd_pins axis_switch_buf/s_axi_ctrl_aclk] [get_bd_pins axis_switch_gen/aclk] [get_bd_pins axis_switch_gen/s_axi_ctrl_aclk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/M02_ACLK] [get_bd_pins ps8_0_axi_periph/M03_ACLK] [get_bd_pins ps8_0_axi_periph/M04_ACLK] [get_bd_pins ps8_0_axi_periph/M05_ACLK] [get_bd_pins ps8_0_axi_periph/M06_ACLK] [get_bd_pins ps8_0_axi_periph/M07_ACLK] [get_bd_pins ps8_0_axi_periph/M08_ACLK] [get_bd_pins ps8_0_axi_periph/M09_ACLK] [get_bd_pins ps8_0_axi_periph/M10_ACLK] [get_bd_pins ps8_0_axi_periph/M11_ACLK] [get_bd_pins ps8_0_axi_periph/M12_ACLK] [get_bd_pins rst_100/slowest_sync_clk] [get_bd_pins usp_rf_data_converter_0/s_axi_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/saxihpc0_fpd_aclk] [get_bd_pins qick_processor_0/ps_clk_i] [get_bd_pins qick_time_tagger_0/ps_clk]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0] [get_bd_pins clk_adc2_x2/resetn] [get_bd_pins rst_100/ext_reset_in] [get_bd_pins rst_adc2_x2/ext_reset_in] [get_bd_pins rst_dac0/ext_reset_in] [get_bd_pins rst_dac2/ext_reset_in] [get_bd_pins rst_tproc/ext_reset_in]
+  connect_bd_net -net adc0_clk_clk_out1 [get_bd_pins clk_adc0_x2/clk_out1] [get_bd_pins axis_register_slice_4/aclk] [get_bd_pins qick_time_tagger_0/adc_clk] [get_bd_pins usp_rf_data_converter_0/m0_axis_aclk] [get_bd_pins rst_adc0/slowest_sync_clk]
+  connect_bd_net -net adc0_clk_locked [get_bd_pins clk_adc0_x2/locked] [get_bd_pins rst_adc0/dcm_locked]
+  connect_bd_net -net rst_adc0_peripheral_aresetn [get_bd_pins rst_adc0/peripheral_aresetn] [get_bd_pins axis_register_slice_4/aresetn] [get_bd_pins qick_time_tagger_0/adc_aresetn] [get_bd_pins usp_rf_data_converter_0/m0_axis_aresetn]
+  connect_bd_net -net rst_dac2_peripheral_aresetn [get_bd_pins rst_dac0/peripheral_aresetn] [get_bd_pins sg_translator_1/aresetn] [get_bd_pins qick_processor_0/t_resetn] [get_bd_pins sg_translator_0/aresetn] [get_bd_pins axis_signal_gen_v6_1/aresetn] [get_bd_pins axis_register_slice_11/aresetn] [get_bd_pins axis_register_slice_10/aresetn] [get_bd_pins axis_register_slice_00/aresetn] [get_bd_pins axis_register_slice_01/aresetn] [get_bd_pins axis_signal_gen_v6_0/aresetn] [get_bd_pins usp_rf_data_converter_0/s0_axis_aresetn]
+  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins rst_100/peripheral_aresetn] [get_bd_pins axi_dma_gen/axi_resetn] [get_bd_pins axi_dma_qtt/axi_resetn] [get_bd_pins axi_dma_tproc/axi_resetn] [get_bd_pins axi_smc/aresetn] [get_bd_pins axis_signal_gen_v6_0/s_axi_aresetn] [get_bd_pins axis_signal_gen_v6_0/s0_axis_aresetn] [get_bd_pins axis_switch_gen/aresetn] [get_bd_pins axis_switch_gen/s_axi_ctrl_aresetn] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/M02_ARESETN] [get_bd_pins ps8_0_axi_periph/M03_ARESETN] [get_bd_pins ps8_0_axi_periph/M04_ARESETN] [get_bd_pins ps8_0_axi_periph/M05_ARESETN] [get_bd_pins ps8_0_axi_periph/M06_ARESETN] [get_bd_pins ps8_0_axi_periph/M07_ARESETN] [get_bd_pins ps8_0_axi_periph/M08_ARESETN] [get_bd_pins qick_processor_0/ps_resetn] [get_bd_pins qick_time_tagger_0/ps_aresetn] [get_bd_pins usp_rf_data_converter_0/s_axi_aresetn] [get_bd_pins axis_signal_gen_v6_1/s_axi_aresetn] [get_bd_pins axis_signal_gen_v6_1/s0_axis_aresetn]
+  connect_bd_net -net rst_tproc_peripheral_aresetn [get_bd_pins rst_tproc/peripheral_aresetn] [get_bd_pins qick_processor_0/c_resetn] [get_bd_pins qick_time_tagger_0/c_aresetn] [get_bd_pins axis_constant_0/m_axis_aresetn]
+  connect_bd_net -net usp_rf_data_converter_0_clk_adc0 [get_bd_pins usp_rf_data_converter_0/clk_adc0] [get_bd_pins clk_adc0_x2/clk_in1] [get_bd_pins qick_processor_0/c_clk_i] [get_bd_pins axis_constant_0/m_axis_aclk] [get_bd_pins qick_time_tagger_0/c_clk] [get_bd_pins rst_tproc/slowest_sync_clk]
+  connect_bd_net -net usp_rf_data_converter_0_clk_dac2 [get_bd_pins usp_rf_data_converter_0/clk_dac0] [get_bd_pins rst_dac0/slowest_sync_clk] [get_bd_pins sg_translator_1/aclk] [get_bd_pins qick_processor_0/t_clk_i] [get_bd_pins sg_translator_0/aclk] [get_bd_pins axis_signal_gen_v6_1/aclk] [get_bd_pins axis_register_slice_11/aclk] [get_bd_pins axis_register_slice_01/aclk] [get_bd_pins axis_signal_gen_v6_0/aclk] [get_bd_pins axis_register_slice_10/aclk] [get_bd_pins axis_register_slice_00/aclk] [get_bd_pins usp_rf_data_converter_0/s0_axis_aclk]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins axi_dma_gen/s_axi_lite_aclk] [get_bd_pins axi_dma_gen/m_axi_mm2s_aclk] [get_bd_pins axi_dma_qtt/s_axi_lite_aclk] [get_bd_pins axi_dma_qtt/m_axi_s2mm_aclk] [get_bd_pins axi_dma_tproc/s_axi_lite_aclk] [get_bd_pins axi_dma_tproc/m_axi_mm2s_aclk] [get_bd_pins axi_dma_tproc/m_axi_s2mm_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins axis_signal_gen_v6_0/s_axi_aclk] [get_bd_pins axis_signal_gen_v6_0/s0_axis_aclk] [get_bd_pins axis_switch_gen/aclk] [get_bd_pins axis_switch_gen/s_axi_ctrl_aclk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/M02_ACLK] [get_bd_pins ps8_0_axi_periph/M03_ACLK] [get_bd_pins ps8_0_axi_periph/M04_ACLK] [get_bd_pins ps8_0_axi_periph/M05_ACLK] [get_bd_pins ps8_0_axi_periph/M06_ACLK] [get_bd_pins ps8_0_axi_periph/M07_ACLK] [get_bd_pins ps8_0_axi_periph/M08_ACLK] [get_bd_pins qick_processor_0/ps_clk_i] [get_bd_pins qick_time_tagger_0/ps_clk] [get_bd_pins rst_100/slowest_sync_clk] [get_bd_pins usp_rf_data_converter_0/s_axi_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/saxihpc0_fpd_aclk] [get_bd_pins axis_signal_gen_v6_1/s_axi_aclk] [get_bd_pins axis_signal_gen_v6_1/s0_axis_aclk]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0] [get_bd_pins rst_100/ext_reset_in] [get_bd_pins rst_adc0/ext_reset_in] [get_bd_pins rst_dac0/ext_reset_in] [get_bd_pins clk_adc0_x2/resetn] [get_bd_pins rst_tproc/ext_reset_in]
 
   # Create address segments
-  assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_dma_avg/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
-  assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_dma_buf/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
   assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_dma_gen/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
   assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_dma_qtt/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
   assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
   assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
-  assign_bd_address -offset 0xA0000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_avg/S_AXI_LITE/Reg] -force
-  assign_bd_address -offset 0xA0010000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_buf/S_AXI_LITE/Reg] -force
-  assign_bd_address -offset 0xA0020000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_gen/S_AXI_LITE/Reg] -force
-  assign_bd_address -offset 0xA0030000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_qtt/S_AXI_LITE/Reg] -force
-  assign_bd_address -offset 0xA0040000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_tproc/S_AXI_LITE/Reg] -force
-  assign_bd_address -offset 0xA00A0000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_signal_gen_v6_0/s_axi/reg0] -force
-  assign_bd_address -offset 0xA0050000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_signal_gen_v6_1/s_axi/reg0] -force
-  assign_bd_address -offset 0xA00C0000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_switch_avg/S_AXI_CTRL/Reg] -force
-  assign_bd_address -offset 0xA00D0000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_switch_buf/S_AXI_CTRL/Reg] -force
-  assign_bd_address -offset 0xA00E0000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_switch_gen/S_AXI_CTRL/Reg] -force
-  assign_bd_address -offset 0xA00F0000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs qick_processor_0/s_axi/reg0] -force
-  assign_bd_address -offset 0xA0100000 -range 0x00001000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs qick_time_tagger_0/s_axi/reg0] -force
-  assign_bd_address -offset 0xA0140000 -range 0x00040000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs usp_rf_data_converter_0/s_axi/Reg] -force
+  assign_bd_address -offset 0xA0000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_gen/S_AXI_LITE/Reg] -force
+  assign_bd_address -offset 0xA0010000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_qtt/S_AXI_LITE/Reg] -force
+  assign_bd_address -offset 0xA0020000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_dma_tproc/S_AXI_LITE/Reg] -force
+  assign_bd_address -offset 0xA0030000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_signal_gen_v6_0/s_axi/reg0] -force
+  assign_bd_address -offset 0xA0040000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_signal_gen_v6_1/s_axi/reg0] -force
+  assign_bd_address -offset 0xA0050000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axis_switch_gen/S_AXI_CTRL/Reg] -force
+  assign_bd_address -offset 0xA0060000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs qick_processor_0/s_axi/reg0] -force
+  assign_bd_address -offset 0xA0070000 -range 0x00001000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs qick_time_tagger_0/s_axi/reg0] -force
+  assign_bd_address -offset 0xA0080000 -range 0x00040000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs usp_rf_data_converter_0/s_axi/Reg] -force
 
   # Exclude Address Segments
-  exclude_bd_addr_seg -offset 0x000800000000 -range 0x000100000000 -target_address_space [get_bd_addr_spaces axi_dma_avg/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
-  exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_dma_avg/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM]
-  exclude_bd_addr_seg -offset 0x000800000000 -range 0x000100000000 -target_address_space [get_bd_addr_spaces axi_dma_buf/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
-  exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_dma_buf/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM]
-  exclude_bd_addr_seg -offset 0x000800000000 -range 0x000100000000 -target_address_space [get_bd_addr_spaces axi_dma_gen/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
+  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces axi_dma_gen/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
   exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_dma_gen/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM]
-  exclude_bd_addr_seg -offset 0x000800000000 -range 0x000100000000 -target_address_space [get_bd_addr_spaces axi_dma_qtt/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
+  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces axi_dma_qtt/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
   exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_dma_qtt/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM]
-  exclude_bd_addr_seg -offset 0x000800000000 -range 0x000100000000 -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
+  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
   exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM]
-  exclude_bd_addr_seg -offset 0x000800000000 -range 0x000100000000 -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
+  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_HIGH]
   exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_dma_tproc/Data_S2MM] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM]
 
   # Perform GUI Layout
@@ -1598,8 +1480,8 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
    "Color Coded_ScaleFactor":"0.226667",
    "Color Coded_TopLeft":"-326,0",
    "Default View_Layers":"/clk_tproc_clk_out2:true|/rst_tproc_peripheral_aresetn:true|/usp_rf_data_converter_0_clk_adc0:true|/usp_rf_data_converter_0_clk_dac0:true|/clk_adc0_x2_clk_out1:true|/clk_tproc_clk_out1:true|/rst_adc0_x2_peripheral_aresetn:true|/rst_ps8_0_99M_peripheral_aresetn:true|/zynq_ultra_ps_e_0_pl_clk0:true|/rst_adc0_peripheral_aresetn:true|/zynq_ultra_ps_e_0_pl_resetn0:true|/rst_dac0_peripheral_aresetn:true|/usp_rf_data_converter_0_clk_dac2:true|/rst_dac1_peripheral_aresetn:true|",
-   "Default View_ScaleFactor":"0.157068",
-   "Default View_TopLeft":"-439,-229",
+   "Default View_ScaleFactor":"0.195853",
+   "Default View_TopLeft":"-1118,-189",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
@@ -1610,165 +1492,94 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
    "Interfaces View_TopLeft":"0,-612",
    "No Loops_ScaleFactor":"0.191011",
    "No Loops_TopLeft":"-623,0",
-   "PinnedBlocks":"/zynq_ultra_ps_e_0|/rst_100|/rst_dac0|/axis_register_slice_0|/axis_signal_gen_v6_0|/axi_smc|/axi_dma_avg|/axi_dma_buf|/axi_dma_tproc|/axis_switch_gen|/axi_dma_gen|/axis_switch_avg|/axis_switch_buf|/sg_translator_0|/axis_cc_sg_0|/qick_processor_0|/usp_rf_data_converter_0|/clk_adc2_x2|/axi_dma_qtt|/qick_time_tagger_0|/axis_signal_gen_v6_1|/sg_translator_1|/axis_cc_sg_1|/axis_register_slice_1|/ps8_0_axi_periph|",
-   "PinnedPorts":"PMOD0_0|PMOD0_1|PMOD0_2|PMOD0_3|PMOD0_4|PMOD0_5|PMOD0_6|PMOD0_7|PMOD1_0|PMOD1_1|PMOD1_2|PMOD1_3|PMOD1_4|PMOD1_5|PMOD1_6|PMOD1_7|PMOD01_0|PMOD01_1|PMOD01_2|PMOD01_3|dac0_clk|sysref_in|vout00|adc2_clk|dac2_clk|vout20|",
-   "comment_0":"RF_IN_CLK > 491.52 Mhz
-c_clk >  245.76 Mhz 
-t_clk >  491.52 Mhz 
----------------------------------------
-GSPS              > OUT_FREQ   >  IN_FREQ
-ADC0 3.93216 > 245.76 Mhz > 491.52 Mhz 
-ADC0 3.93216 > 245.76 Mhz > 491.52 Mhz
-DAC0 7.86432 > 491.52 Mhz > 491.52 Mhz",
-   "commentid":"comment_0|",
-   "fillcolor_comment_0":"",
-   "font_comment_0":"12",
+   "PinnedBlocks":"/zynq_ultra_ps_e_0|/rst_100|/axis_signal_gen_v6_0|/axi_dma_tproc|/axis_switch_gen|/axi_dma_gen|/sg_translator_0|/qick_processor_0|/usp_rf_data_converter_0|/axi_dma_qtt|/qick_time_tagger_0|/sg_translator_1|/ps8_0_axi_periph|/axi_smc|/axis_constant_0|/axis_register_slice_4|",
+   "PinnedPorts":"sysref_in|",
+   "commentid":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port dac0_clk -pg 1 -lvl 9 -x 5360 -y 1520 -defaultsOSRD -right
-preplace port sysref_in -pg 1 -lvl 9 -x 5360 -y 1420 -defaultsOSRD -right
-preplace port vout00 -pg 1 -lvl 9 -x 5360 -y 2060 -defaultsOSRD
-preplace port adc2_clk -pg 1 -lvl 9 -x 5360 -y 1560 -defaultsOSRD -right
-preplace port dac2_clk -pg 1 -lvl 9 -x 5360 -y 1540 -defaultsOSRD -right
-preplace port vout20 -pg 1 -lvl 9 -x 5360 -y 2080 -defaultsOSRD
-preplace port port-id_PMOD0_0 -pg 1 -lvl 9 -x 5360 -y 2540 -defaultsOSRD
-preplace port port-id_PMOD0_1 -pg 1 -lvl 9 -x 5360 -y 2560 -defaultsOSRD
-preplace port port-id_PMOD0_2 -pg 1 -lvl 9 -x 5360 -y 2580 -defaultsOSRD
-preplace port port-id_PMOD0_3 -pg 1 -lvl 9 -x 5360 -y 2600 -defaultsOSRD
-preplace port port-id_PMOD0_4 -pg 1 -lvl 9 -x 5360 -y 2620 -defaultsOSRD
-preplace port port-id_PMOD0_5 -pg 1 -lvl 9 -x 5360 -y 2640 -defaultsOSRD
-preplace port port-id_PMOD0_6 -pg 1 -lvl 9 -x 5360 -y 2660 -defaultsOSRD
-preplace port port-id_PMOD0_7 -pg 1 -lvl 9 -x 5360 -y 2680 -defaultsOSRD
-preplace port port-id_PMOD1_0 -pg 1 -lvl 9 -x 5360 -y 2740 -defaultsOSRD
-preplace port port-id_PMOD1_1 -pg 1 -lvl 9 -x 5360 -y 2760 -defaultsOSRD
-preplace port port-id_PMOD1_2 -pg 1 -lvl 9 -x 5360 -y 2780 -defaultsOSRD
-preplace port port-id_PMOD1_3 -pg 1 -lvl 9 -x 5360 -y 2800 -defaultsOSRD
-preplace port port-id_PMOD1_4 -pg 1 -lvl 9 -x 5360 -y 2820 -defaultsOSRD
-preplace port port-id_PMOD1_5 -pg 1 -lvl 9 -x 5360 -y 2840 -defaultsOSRD
-preplace port port-id_PMOD1_6 -pg 1 -lvl 9 -x 5360 -y 2860 -defaultsOSRD
-preplace port port-id_PMOD1_7 -pg 1 -lvl 9 -x 5360 -y 2880 -defaultsOSRD
-preplace port port-id_PMOD01_0 -pg 1 -lvl 9 -x 5360 -y 2700 -defaultsOSRD
-preplace port port-id_PMOD01_1 -pg 1 -lvl 9 -x 5360 -y 2720 -defaultsOSRD
-preplace port port-id_PMOD01_2 -pg 1 -lvl 9 -x 5360 -y 2900 -defaultsOSRD
-preplace port port-id_PMOD01_3 -pg 1 -lvl 9 -x 5360 -y 2920 -defaultsOSRD
-preplace inst axi_dma_avg -pg 1 -lvl 3 -x 2200 -y 170 -defaultsOSRD
-preplace inst axi_dma_buf -pg 1 -lvl 3 -x 2200 -y 400 -defaultsOSRD
-preplace inst axi_dma_gen -pg 1 -lvl 3 -x 2200 -y 790 -defaultsOSRD
-preplace inst axi_dma_qtt -pg 1 -lvl 3 -x 2200 -y 960 -defaultsOSRD
-preplace inst axi_dma_tproc -pg 1 -lvl 3 -x 2200 -y 600 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 4 -x 2740 -y -50 -defaultsOSRD
-preplace inst axis_cc_sg_0 -pg 1 -lvl 5 -x 3110 -y 1890 -defaultsOSRD
-preplace inst axis_cc_sg_1 -pg 1 -lvl 5 -x 3110 -y 2110 -defaultsOSRD -resize 220 156
-preplace inst axis_constant_0 -pg 1 -lvl 2 -x 1730 -y 2650 -defaultsOSRD
-preplace inst axis_register_slice_0 -pg 1 -lvl 7 -x 4520 -y 1930 -defaultsOSRD
-preplace inst axis_register_slice_1 -pg 1 -lvl 7 -x 4520 -y 2190 -defaultsOSRD -resize 180 116
-preplace inst axis_register_slice_4 -pg 1 -lvl 1 -x 1410 -y 1710 -defaultsOSRD -resize 180 116
-preplace inst axis_signal_gen_v6_0 -pg 1 -lvl 6 -x 3800 -y 1910 -defaultsOSRD
-preplace inst axis_signal_gen_v6_1 -pg 1 -lvl 6 -x 3800 -y 2170 -defaultsOSRD -resize 220 236
-preplace inst axis_switch_avg -pg 1 -lvl 1 -x 1410 -y 150 -defaultsOSRD
-preplace inst axis_switch_buf -pg 1 -lvl 1 -x 1410 -y 380 -defaultsOSRD
-preplace inst axis_switch_gen -pg 1 -lvl 4 -x 2740 -y 830 -defaultsOSRD
-preplace inst clk_adc2_x2 -pg 1 -lvl 5 -x 3110 -y 440 -defaultsOSRD -resize 160 96
-preplace inst ps8_0_axi_periph -pg 1 -lvl 7 -x 4520 -y 260 -defaultsOSRD
-preplace inst rst_100 -pg 1 -lvl 6 -x 3800 -y 170 -defaultsOSRD
-preplace inst rst_adc2_x2 -pg 1 -lvl 6 -x 3800 -y 530 -defaultsOSRD -resize 320 156
-preplace inst rst_dac0 -pg 1 -lvl 6 -x 3800 -y 710 -defaultsOSRD
-preplace inst rst_dac2 -pg 1 -lvl 6 -x 3800 -y 890 -defaultsOSRD -resize 320 156
-preplace inst rst_tproc -pg 1 -lvl 6 -x 3800 -y 350 -defaultsOSRD -resize 320 156
-preplace inst sg_translator_0 -pg 1 -lvl 4 -x 2740 -y 1850 -defaultsOSRD
-preplace inst sg_translator_1 -pg 1 -lvl 4 -x 2740 -y 2070 -defaultsOSRD -resize 260 116
-preplace inst usp_rf_data_converter_0 -pg 1 -lvl 8 -x 5150 -y 2100 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 6 -x 3800 -y -10 -defaultsOSRD
-preplace inst qick_processor_0 -pg 1 -lvl 3 -x 2200 -y 2710 -defaultsOSRD
-preplace inst qick_time_tagger_0 -pg 1 -lvl 3 -x 2200 -y 1760 -defaultsOSRD
-preplace netloc Net1 1 1 6 1590 2570 1930 1910 2410 1750 2890 1730 N 1730 4110
-preplace netloc clk_adc2_x2_clk_out1 1 0 8 1270 1790 N 1790 1950 1920 2550 1760 2950 1740 3410 1740 N 1740 4930
-preplace netloc clk_adc2_x2_locked 1 5 1 3460 450n
-preplace netloc qick_processor_0_trig_0_o 1 3 6 N 2540 N 2540 N 2540 N 2540 N 2540 N
-preplace netloc qick_processor_0_trig_10_o 1 3 6 N 2740 N 2740 N 2740 N 2740 N 2740 N
-preplace netloc qick_processor_0_trig_11_o 1 3 6 N 2760 N 2760 N 2760 N 2760 N 2760 N
-preplace netloc qick_processor_0_trig_12_o 1 3 6 N 2780 N 2780 N 2780 N 2780 N 2780 N
-preplace netloc qick_processor_0_trig_13_o 1 3 6 N 2800 N 2800 N 2800 N 2800 N 2800 N
-preplace netloc qick_processor_0_trig_14_o 1 3 6 N 2820 N 2820 N 2820 N 2820 N 2820 N
-preplace netloc qick_processor_0_trig_15_o 1 3 6 N 2840 N 2840 N 2840 N 2840 N 2840 N
-preplace netloc qick_processor_0_trig_16_o 1 3 6 N 2860 N 2860 N 2860 N 2860 N 2860 N
-preplace netloc qick_processor_0_trig_17_o 1 3 6 N 2880 N 2880 N 2880 N 2880 N 2880 N
-preplace netloc qick_processor_0_trig_18_o 1 3 6 N 2900 N 2900 N 2900 N 2900 N 2900 N
-preplace netloc qick_processor_0_trig_19_o 1 3 6 N 2920 N 2920 N 2920 N 2920 N 2920 N
-preplace netloc qick_processor_0_trig_1_o 1 3 6 N 2560 N 2560 N 2560 N 2560 N 2560 N
-preplace netloc qick_processor_0_trig_20_o 1 2 2 1990 1940 2400
-preplace netloc qick_processor_0_trig_2_o 1 3 6 N 2580 N 2580 N 2580 N 2580 N 2580 N
-preplace netloc qick_processor_0_trig_3_o 1 3 6 N 2600 N 2600 N 2600 N 2600 N 2600 N
-preplace netloc qick_processor_0_trig_4_o 1 3 6 N 2620 N 2620 N 2620 N 2620 N 2620 N
-preplace netloc qick_processor_0_trig_5_o 1 3 6 N 2640 N 2640 N 2640 N 2640 N 2640 N
-preplace netloc qick_processor_0_trig_6_o 1 3 6 N 2660 N 2660 N 2660 N 2660 N 2660 N
-preplace netloc qick_processor_0_trig_7_o 1 3 6 N 2680 N 2680 N 2680 N 2680 N 2680 N
-preplace netloc qick_processor_0_trig_8_o 1 3 6 N 2700 N 2700 N 2700 N 2700 N 2700 N
-preplace netloc qick_processor_0_trig_9_o 1 3 6 N 2720 N 2720 N 2720 N 2720 N 2720 N
-preplace netloc rst_adc2_x2_peripheral_aresetn 1 0 8 1260 1800 N 1800 1960 1950 2590 1770 2960 1750 N 1750 4160J 1750 4920
-preplace netloc rst_dac0_peripheral_aresetn 1 4 4 2980 1790 3470 1770 4150 2110 4680
-preplace netloc rst_dac2_peripheral_aresetn 1 4 4 2970 2250 3400 2310 4130 2270 4690
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 0 8 1270 500 N 500 1910 270 2580 940 N 940 3400 1010 4370 1030 4950
-preplace netloc usp_rf_data_converter_0_clk_adc2 1 1 8 1600 2580 1920 290 N 290 2940 310 3470 1050 N 1050 N 1050 5310
-preplace netloc usp_rf_data_converter_0_clk_dac0 1 4 5 2980 1990 3430 1760 4140 1850 4900 1880 5300
-preplace netloc usp_rf_data_converter_0_clk_dac2 1 4 5 2980 2010 3460 2320 4370 2280 5010 2320 5290
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 8 1260 510 N 510 1900 280 2570 340 N 340 3450 -110 4360 980 4960
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 4 3 2980 370 3480 1000 4120
-preplace netloc adc0_clk1_1 1 7 2 5010 1560 N
-preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 2410 -40n
-preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 2440 -20n
-preplace netloc axi_dma_0_M_AXI_S2MM1 1 3 1 2420 -80n
-preplace netloc axi_dma_avg_M_AXI_S2MM 1 3 1 2390 -120n
-preplace netloc axi_dma_buf_M_AXI_S2MM 1 3 1 2400 -100n
-preplace netloc axi_dma_gen_M_AXIS_MM2S 1 3 1 N 780
-preplace netloc axi_dma_gen_M_AXI_MM2S 1 3 1 2430 -60n
-preplace netloc axi_dma_tproc_M_AXIS_MM2S 1 2 2 1970 1060 2380
-preplace netloc axi_smc_M00_AXI 1 4 2 N -50 N
-preplace netloc axis_cc_sg_0_M_AXIS 1 5 1 3440 1850n
-preplace netloc axis_cc_sg_1_M_AXIS 1 5 1 N 2110
-preplace netloc axis_constant_0_m_axis 1 2 1 1940 2630n
-preplace netloc axis_register_slice_1_m_axis 1 7 1 4910 1980n
-preplace netloc axis_register_slice_4_M_AXIS 1 1 2 N 1710 N
-preplace netloc axis_register_slice_6_m_axis 1 7 1 4940 1930n
-preplace netloc axis_signal_gen_v6_0_m_axis 1 6 1 N 1910
-preplace netloc axis_signal_gen_v6_1_m_axis 1 6 1 N 2170
-preplace netloc axis_switch_avg_M00_AXIS 1 1 2 N 150 N
-preplace netloc axis_switch_buf_M00_AXIS 1 1 2 N 380 N
-preplace netloc axis_switch_gen_M00_AXIS 1 4 2 N 820 3440
-preplace netloc axis_switch_gen_M01_AXIS 1 4 2 NJ 840 3420
-preplace netloc dac0_clk_1 1 7 2 4990 1530 5330
-preplace netloc dac2_clk_1 1 7 2 5000 1540 NJ
-preplace netloc ps8_0_axi_periph_M00_AXI 1 2 6 1980 -220 NJ -220 NJ -220 NJ -220 NJ -220 4680
-preplace netloc ps8_0_axi_periph_M01_AXI 1 2 6 2000 -210 NJ -210 NJ -210 NJ -210 NJ -210 4700
-preplace netloc ps8_0_axi_periph_M02_AXI 1 2 6 1970 -200 NJ -200 NJ -200 NJ -200 NJ -200 4760
-preplace netloc ps8_0_axi_periph_M03_AXI 1 2 6 1990 -190 NJ -190 NJ -190 NJ -190 NJ -190 4770
-preplace netloc ps8_0_axi_periph_M04_AXI 1 2 6 2020 -180 NJ -180 NJ -180 NJ -180 NJ -180 4810
-preplace netloc ps8_0_axi_periph_M05_AXI 1 5 3 3480 1040 NJ 1040 4670
-preplace netloc ps8_0_axi_periph_M06_AXI 1 5 3 3490 1060 NJ 1060 4740
-preplace netloc ps8_0_axi_periph_M07_AXI 1 0 8 1250 1070 NJ 1070 N 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 4730
-preplace netloc ps8_0_axi_periph_M08_AXI 1 0 8 1240 1080 NJ 1080 N 1080 NJ 1080 NJ 1080 NJ 1080 NJ 1080 4720
-preplace netloc ps8_0_axi_periph_M09_AXI 1 3 5 2590 990 NJ 990 NJ 990 NJ 990 4690
-preplace netloc ps8_0_axi_periph_M10_AXI 1 2 6 1980 1090 NJ 1090 NJ 1090 NJ 1090 NJ 1090 4700
-preplace netloc ps8_0_axi_periph_M11_AXI 1 2 6 2000 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 4680
-preplace netloc ps8_0_axi_periph_M12_AXI 1 7 1 4970 380n
-preplace netloc qick_processor_0_QPeriphA 1 2 2 2020 1930 2380
-preplace netloc qick_processor_0_m0_axis 1 3 1 2580 2050n
-preplace netloc qick_processor_0_m1_axis 1 3 1 2560 1830n
-preplace netloc qick_processor_0_m_dma_axis_o 1 2 2 2010 300 2390
-preplace netloc qick_time_tagger_0_m_axis_dma 1 2 2 2010 1520 2380
-preplace netloc sg_translator_0_m_gen_v6_axis 1 4 1 N 1850
-preplace netloc sg_translator_1_m_gen_v6_axis 1 4 1 N 2070
-preplace netloc sysref_in_1 1 7 2 4980 1520 5320
-preplace netloc usp_rf_data_converter_0_m20_axis 1 0 9 1270 1510 N 1510 N 1510 N 1510 N 1510 N 1510 N 1510 N 1510 5290
-preplace netloc usp_rf_data_converter_0_vout00 1 8 1 5330 2060n
-preplace netloc usp_rf_data_converter_0_vout20 1 8 1 5330 2080n
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 6 1 N -40
-preplace cgraphic comment_0 place right -979 2340 textcolor 4 linecolor 3 linewidth 2
-levelinfo -pg 1 -90 1410 1730 2200 2740 3110 3800 4520 5150 5360
+preplace port sysref_in -pg 1 -lvl 8 -x 3500 -y 1330 -defaultsOSRD -right
+preplace port vout02 -pg 1 -lvl 8 -x 3500 -y 1800 -defaultsOSRD
+preplace port adc0_clk -pg 1 -lvl 8 -x 3500 -y 1630 -defaultsOSRD -right
+preplace port vout00 -pg 1 -lvl 8 -x 3500 -y 1780 -defaultsOSRD
+preplace port dac0_clk_0 -pg 1 -lvl 8 -x 3500 -y 1610 -defaultsOSRD -right
+preplace inst axi_dma_gen -pg 1 -lvl 2 -x 800 -y 430 -defaultsOSRD
+preplace inst axi_dma_qtt -pg 1 -lvl 2 -x 800 -y 600 -defaultsOSRD
+preplace inst axi_dma_tproc -pg 1 -lvl 2 -x 800 -y 240 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 3 -x 1250 -y -80 -defaultsOSRD
+preplace inst axis_constant_0 -pg 1 -lvl 1 -x 370 -y 1870 -defaultsOSRD
+preplace inst axis_register_slice_01 -pg 1 -lvl 6 -x 2850 -y 2000 -defaultsOSRD
+preplace inst axis_register_slice_4 -pg 1 -lvl 1 -x 370 -y 1450 -defaultsOSRD -resize 180 116
+preplace inst axis_signal_gen_v6_0 -pg 1 -lvl 5 -x 2270 -y 2020 -defaultsOSRD
+preplace inst axis_switch_gen -pg 1 -lvl 3 -x 1250 -y 470 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 6 -x 2850 -y 430 -defaultsOSRD
+preplace inst qick_processor_0 -pg 1 -lvl 2 -x 800 -y 1950 -defaultsOSRD
+preplace inst qick_time_tagger_0 -pg 1 -lvl 2 -x 800 -y 1500 -defaultsOSRD
+preplace inst rst_100 -pg 1 -lvl 5 -x 2270 -y 270 -defaultsOSRD
+preplace inst rst_adc0 -pg 1 -lvl 5 -x 2270 -y 630 -defaultsOSRD
+preplace inst rst_dac0 -pg 1 -lvl 5 -x 2270 -y 450 -defaultsOSRD -resize 320 156
+preplace inst sg_translator_0 -pg 1 -lvl 3 -x 1250 -y 1940 -defaultsOSRD
+preplace inst sg_translator_1 -pg 1 -lvl 3 -x 1250 -y 2200 -defaultsOSRD -resize 260 116
+preplace inst usp_rf_data_converter_0 -pg 1 -lvl 7 -x 3270 -y 1810 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 2270 -y 90 -defaultsOSRD
+preplace inst clk_adc0_x2 -pg 1 -lvl 4 -x 1530 -y 660 -defaultsOSRD
+preplace inst rst_tproc -pg 1 -lvl 5 -x 2270 -y 810 -defaultsOSRD -resize 320 156
+preplace inst axis_signal_gen_v6_1 -pg 1 -lvl 5 -x 2270 -y 2280 -defaultsOSRD
+preplace inst axis_register_slice_11 -pg 1 -lvl 6 -x 2850 -y 2140 -defaultsOSRD
+preplace inst axis_register_slice_00 -pg 1 -lvl 4 -x 1530 -y 1960 -defaultsOSRD
+preplace inst axis_register_slice_10 -pg 1 -lvl 4 -x 1530 -y 2220 -defaultsOSRD -resize 180 116
+preplace netloc adc0_clk_clk_out1 1 0 7 240 1530 510 1320 N 1320 N 1320 1920 1320 N 1320 3050
+preplace netloc adc0_clk_locked 1 4 1 N 670
+preplace netloc rst_adc0_peripheral_aresetn 1 0 7 230 1540 540 1330 N 1330 N 1330 NJ 1330 2630 1330 3040
+preplace netloc rst_dac2_peripheral_aresetn 1 1 6 620 2090 1080 2020 1420 2040 1920 1870 2600 1910 N
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 6 550 90 1090 580 NJ 580 1890 970 2610 960 3090
+preplace netloc rst_tproc_peripheral_aresetn 1 0 6 230 1790 530 990 N 990 N 990 N 990 2590
+preplace netloc usp_rf_data_converter_0_clk_adc0 1 0 8 240 1800 520 770 N 770 1410 770 1950 950 N 950 N 950 3420
+preplace netloc usp_rf_data_converter_0_clk_dac2 1 1 7 600 2100 1100 2030 1410 2050 1940 1880 2580 1920 3030 1990 3410
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 1 6 560 100 1080 80 NJ 80 1930 980 2620 970 3080J
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 3 3 1420 730 1960 960 2580
+preplace netloc adc0_clk1_1 1 6 2 3130 1630 NJ
+preplace netloc axi_dma_gen_M_AXIS_MM2S 1 2 1 N 420
+preplace netloc axi_dma_gen_M_AXI_MM2S 1 2 1 1020J -130n
+preplace netloc axi_dma_qtt_M_AXI_S2MM 1 2 1 1040 -110n
+preplace netloc axi_dma_tproc_M_AXIS_MM2S 1 1 2 570 110 1010
+preplace netloc axi_dma_tproc_M_AXI_MM2S 1 2 1 1030 -90n
+preplace netloc axi_dma_tproc_M_AXI_S2MM 1 2 1 1050 -70n
+preplace netloc axi_smc_M00_AXI 1 3 2 N -80 1710
+preplace netloc axis_constant_0_m_axis 1 1 1 N 1870
+preplace netloc axis_register_slice_01_m_axis 1 6 1 3060 1710n
+preplace netloc axis_register_slice_11_m_axis 1 6 1 3070 1730n
+preplace netloc axis_register_slice_3_M_AXIS 1 4 1 N 1960
+preplace netloc axis_register_slice_4_M_AXIS 1 1 1 N 1450
+preplace netloc axis_register_slice_5_M_AXIS 1 4 1 N 2220
+preplace netloc axis_signal_gen_v6_0_m_axis 1 5 1 2590 1980n
+preplace netloc axis_signal_gen_v6_1_m_axis 1 5 1 2640 2120n
+preplace netloc axis_switch_gen_M00_AXIS 1 3 2 NJ 460 1910
+preplace netloc axis_switch_gen_M01_AXIS 1 3 2 NJ 480 1900J
+preplace netloc dac0_clk_0_1 1 6 2 3120J 1620 3430
+preplace netloc ps8_0_axi_periph_M00_AXI 1 1 6 590 920 NJ 920 NJ 920 NJ 920 NJ 920 3090
+preplace netloc ps8_0_axi_periph_M01_AXI 1 1 6 600 910 NJ 910 NJ 910 NJ 910 NJ 910 3040
+preplace netloc ps8_0_axi_periph_M02_AXI 1 1 6 580 930 NJ 930 NJ 930 NJ 930 NJ 930 3020
+preplace netloc ps8_0_axi_periph_M03_AXI 1 4 3 1960 1150 NJ 1150 3060
+preplace netloc ps8_0_axi_periph_M04_AXI 1 4 3 1950 1000 2640 980 3050J
+preplace netloc ps8_0_axi_periph_M05_AXI 1 2 5 1100 940 NJ 940 NJ 940 NJ 940 3030
+preplace netloc ps8_0_axi_periph_M06_AXI 1 1 6 600 1130 N 1130 N 1130 N 1130 N 1130 3000
+preplace netloc ps8_0_axi_periph_M07_AXI 1 1 6 620 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 3010
+preplace netloc ps8_0_axi_periph_M08_AXI 1 6 1 3100 510n
+preplace netloc qick_processor_0_QPeriphA 1 1 2 610 1350 990
+preplace netloc qick_processor_0_m0_axis 1 2 1 1030 1900n
+preplace netloc qick_processor_0_m1_axis 1 2 1 N 1920
+preplace netloc qick_processor_0_m_dma_axis_o 1 1 2 610 120 1000
+preplace netloc qick_time_tagger_0_m_axis_dma 1 1 2 610 700 980
+preplace netloc sg_translator_0_m_gen_v6_axis 1 3 1 N 1940
+preplace netloc sg_translator_1_m_gen_v6_axis 1 3 1 N 2200
+preplace netloc sysref_in_1 1 6 2 3110 1330 NJ
+preplace netloc usp_rf_data_converter_0_m20_axis 1 0 8 240 1340 N 1340 N 1340 N 1340 N 1340 N 1340 N 1340 3410
+preplace netloc usp_rf_data_converter_0_vout00 1 7 1 N 1780
+preplace netloc usp_rf_data_converter_0_vout02 1 7 1 N 1800
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 5 1 2630 60n
+levelinfo -pg 1 -50 370 800 1250 1530 2270 2850 3270 3500
 pagesize -pg 1 -db -bbox -sgen -210 -980 5490 3240
-",
-   "linecolor_comment_0":"",
-   "textcolor_comment_0":""
+"
 }
 
   # Restore current instance
