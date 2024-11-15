@@ -2,22 +2,16 @@
 set origin_dir "."
 
 puts "###############################################################"
-puts "QICK COM PERIPHERAL DESIGN"
+puts "QICK CROSS TALK COMPENSATION DESIGN"
 puts "###############################################################"
 puts "Directory Structure"
-puts "/IPs/qick_com             > Qick IP Block"
-puts "/Projects/22.1/IP_design  > Run script and generate Project"
+puts "/ip/qick_xtalk    > Qick IP Block"
+puts "/IP_design        > Run script and generate Project"
 puts "###############################################################"
 
-<<<<<<< HEAD
-set ip_path  "$origin_dir/../../../IPs/qick_com/"
-set src_path "$origin_dir/../../../IPs/qick_com/src/"
-set tb_path  "$origin_dir/../../../IPs/qick_com/src/TB/"
-=======
-set ip_path  "$origin_dir/../ip/qick_com/"
-set src_path "$origin_dir/../ip/qick_com/src/"
-set tb_path  "$origin_dir/../ip/qick_com/src/TB/"
->>>>>>> 6fcd73a1f3f1f459eb0b24d71559b7fd6a96f0ff
+set ip_path  "$origin_dir/../ip/qick_xtalk/"
+set src_path "$ip_path/src/"
+set tb_path  "$src_path/TB/"
 
 
 # Use origin directory path location variable, if specified in the tcl shell
@@ -26,7 +20,7 @@ if { [info exists ::origin_dir_loc] } {
 }
 
 # Set the project name
-set _xil_proj_name_ "IP_qick_com_design"
+set _xil_proj_name_ "IP_qick_xtalk_design"
 
 # Set the directory path for the original project from where this script was exported
 set orig_proj_dir "[file normalize "$origin_dir/"]"
