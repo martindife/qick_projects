@@ -397,7 +397,7 @@ proc create_root_design { parentCell } {
   # Create instance: usp_rf_data_converter_0, and set properties
   set usp_rf_data_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:usp_rf_data_converter:2.6 usp_rf_data_converter_0 ]
   set_property -dict [list \
-    CONFIG.ADC2_Outclk_Freq {307.200} \
+    CONFIG.ADC2_Outclk_Freq {153.600} \
     CONFIG.ADC2_PLL_Enable {true} \
     CONFIG.ADC2_Refclk_Freq {245.760} \
     CONFIG.ADC2_Sampling_Rate {2.4576} \

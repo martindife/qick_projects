@@ -140,7 +140,7 @@ add_files -fileset $obj $const_files
 
 # Source Block Design.
 
-source [file normalize "$origin_dir/bd/$bd_file"]
+source [file normalize "$bd_file"]
 
 
 ###############################################################################
