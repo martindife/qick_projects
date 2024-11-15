@@ -626,6 +626,25 @@ class QickSoc(Overlay, QickConfig):
                 else: # restore the default
                     xrfclk._lmk04208Config[lmk_freq][14] = 0x2302886D
             xrfclk.set_all_ref_clks(lmx_freq)
+        elif self['board'] == 'ZCU208':
+            # master clock generator is LMK04828, which is used for DAC/ADC clocks
+            # only 245.76 available by default
+            # LMX2594 is not used
+            # available: 102.4, 204.8, 409.6, 491.52, 737.0
+            lmk_freq = self['refclk_freq']
+            lmx_freq = self['refclk_freq']*2
+            print("resetting clocks:", lmk_freq, lmx_freq)
+
+            assert hasattr(xrfclk, "xrfclk") # ZCU216 only has a pynq 2.7 image
+            xrfclk.xrfclk._find_devices()
+            xrfclk.xrfclk._read_tics_output()
+            if self.external_clk:
+                # default value is 0x01471A
+                xrfclk.xrfclk._Config['lmk04828'][lmk_freq][80] = 0x01470A
+            if self.clk_output:
+                # default value is 0x012C22
+                xrfclk.xrfclk._Config['lmk04828'][lmk_freq][55] = 0x012C02
+            xrfclk.set_ref_clks(lmk_freq=lmk_freq, lmx_freq=lmx_freq)
         elif self['board'] == 'ZCU216':
             # master clock generator is LMK04828, which is used for DAC/ADC clocks
             # only 245.76 available by default
