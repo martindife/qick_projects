@@ -129,7 +129,10 @@ puts "SET CONSTRAINTS"
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-
+set const_files [list \
+	[ file normalize "$origin_dir/xdc/$timing_const"] 	\
+	[ file normalize "$origin_dir/xdc/$ios_const"] 	\
+]
 
 
 add_files -fileset $obj $const_files
